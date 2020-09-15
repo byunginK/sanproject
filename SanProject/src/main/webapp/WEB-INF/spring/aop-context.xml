@@ -9,7 +9,7 @@
 	<aop:aspectj-autoproxy/>
 	
 	<!-- AOP 해당 클래스를 생성 -->
-	<bean id="myAspect" class="bit.com.spring.aop.LogAop"/>
+	<bean id="myAspect" class="com.san.spring.aop.LogAop"/>
 	
 
 </beans>

@@ -36,7 +36,7 @@
 		<property name="maxOpenPreparedStatements" value="50" />
 	</bean>
 
-	<!-- mybatis setting -->
+	 	<!-- mybatis setting -->
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" /> <!-- ref 는 외부에서 가져온 값을 대입하여 참조하는것이다 -->
@@ -49,12 +49,16 @@
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 		<constructor-arg index="1" value="SIMPLE" />				<!-- value="BATCH" 에러날 경우 둘중 하나 -->
 	</bean>
+	
+	<!-- Mapper : sql 문을 가지고있는 파일 -->
+	<!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.san.spring.login"/>
+	</bean> -->
 
 	<!-- jdbc -->
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-
 
 </beans>

@@ -15,7 +15,12 @@
 
 	<!-- The definition of the Root Spring Container shared by all Servlets 
 		and Filters -->
-
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+				/WEB-INF/spring/root-context.xml
+		</param-value>
+	</context-param>
 
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
 	<listener>
@@ -31,20 +36,14 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-				/WEB-INF/spring/appServlet/servlet-context.xml<!-- 우리가 사용할 view의 확장자와 
-					경로를 셋팅해주는 것 -->
+				/WEB-INF/spring/appServlet/servlet-context.xml<!-- 우리가 사용할 view의 확장자와 경로를 셋팅해주는 것 -->
 				/WEB-INF/spring/aop-context.xml <!-- aop-context 읽게 했음 -->
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>
-			/WEB-INF/spring/root-context.xml
-		</param-value>
-	</context-param>
+
 
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>

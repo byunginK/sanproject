@@ -14,10 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class BbsController {
 	
-	@ResponseBody
-	@RequestMapping(value="/")
-	public String home() {
-		return null;
-	}
+
 
 }
