@@ -4,7 +4,7 @@
 <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:if test="${not empty login }">	<!-- login이 되었을때 -->
-${login.id }님 안녕하세요 	
+${login.nickname }님 안녕하세요 	
 <div align="right" style="height: 20px;"><a href="logout.do">로그아웃</a></div>
 <table border="1"  bgcolor='gray'>
 <col width="200">
@@ -29,13 +29,13 @@ ${login.id }님 안녕하세요
 <tr>
 	<td>아이디</td>
 	<td>
-		<input type="text" name="id" size="20">
+		<input type="text" name="email" size="20">
 	</td>
 </tr>
 <tr>
 	<td>패스워드</td>
 	<td>
-		<input type="text" name="pwd" size="20">
+		<input type="text" name="password" size="20">
 	</td>
 </tr>
 <tr>
