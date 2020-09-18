@@ -12,7 +12,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.san.spring.login.MemberController;
+
 @Controller
 public class SanController {
 
+	private static Logger logger = LoggerFactory.getLogger(SanController.class);
+	
+	@RequestMapping(value = "main.do", method = RequestMethod.GET)
+	public String gomain() {
+		logger.info("gomain()");
+		return "mainBbs.tiles";
+	}
 }
