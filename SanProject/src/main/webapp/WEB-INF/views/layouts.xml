@@ -8,6 +8,21 @@
 	<definition name="mainBbs.tiles" template="/WEB-INF/views/layouts-tiles.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/fix/header.jsp"/>
 		<put-attribute name="top_menu" value="/WEB-INF/views/fix/top_menu.jsp"/>
-		<put-attribute name="main" value="/WEB-INF/views/fix/main.jsp"/>
+		<put-attribute name="main" value="/WEB-INF/views/mainBbs/mainlist.jsp"/>
+	</definition>
+	
+	<definition name="mainSearch.tiles" extends="mainBbs.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/mainBbs/mainsearch.jsp"/>
+	</definition>
+	
+	<definition name="infomain.tiles" extends="mainBbs.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/sanInfo/infomain.jsp"/>
+	</definition>
+	
+	<definition name="mypage.tiles" template="/WEB-INF/views/layout2-tiles.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/fix/header.jsp"/>
+		<put-attribute name="top_menu" value="/WEB-INF/views/fix/top_menu.jsp"/>
+		<put-attribute name="main" value="/WEB-INF/views/myPage/maintest.jsp"/>
+		<put-attribute name="left_bar" value="/WEB-INF/views/fix/left-test.jsp"/>
 	</definition>
 </tiles-definitions>
