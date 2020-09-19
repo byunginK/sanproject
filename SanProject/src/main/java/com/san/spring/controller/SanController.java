@@ -24,4 +24,21 @@ public class SanController {
 		logger.info("gomain()");
 		return "mainBbs.tiles";
 	}
+	
+	@RequestMapping(value = "mainsearch.do", method = RequestMethod.GET)
+	public String searchResult() {
+		logger.info("searchResult()");
+		return "mainSearch.tiles";
+	}
+	
+	@RequestMapping(value = "infomain.do", method = RequestMethod.GET)
+	public String goInfoMain() {
+		logger.info("goInfoMain()");
+		return "infomain.tiles";
+	}
+	@RequestMapping(value = "mypage.do", method = RequestMethod.GET)
+	public String goMyPage() {
+		logger.info("goMyPage()");
+		return "mypage.tiles";
+	}
 }

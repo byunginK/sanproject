@@ -9,12 +9,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <tiles:insertAttribute name="header"/>
-<style type="text/css">
-#body_wrap { width:1150px; margin-left:auto; margin-right:auto; padding:0px; border: 1px solid}	
-#content_wrap { float:left; width:980px; margin-right:0px; border: 1px solid #EFEFEF; padding: 5px; }
-#middle_wrap { width:100%; padding:0px; margin:0px; text-align:center; border:solid 1px #EFEFEF;}
-
-</style>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/layout.css">
 </head>
 <body>
 
@@ -26,9 +21,7 @@
 	</div>
 
 	<div id="middle_wrap">
-		<div id="content_wrap">
-			<tiles:insertAttribute name="main"/>			
-		</div>		
+		<tiles:insertAttribute name="main" />
 	</div>
 </div>
 
