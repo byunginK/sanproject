@@ -11,11 +11,20 @@ public class BbsDto implements Serializable {
 	private String imgname;
 	private String originfilename;
 	private String wdate;
+	//검색을 위한 field
+	private String choice;
+	private String searchWord;
+	
+	// paging을 위한 field
+	private int pageNumber;
+	private int recordCountPerPage = 1; // 1page에 1개의 사진 
+	private int start = 1;
+	private int end = 10;
 
 	public BbsDto() {
-	
+
 	}
-	
+
 	public int getPost_Number() {
 		return post_number;
 	}
@@ -86,7 +95,5 @@ public class BbsDto implements Serializable {
 				+ location + ", auth_check=" + auth_check + ", imgname=" + imgname + ", originfilename="
 				+ originfilename + ", wdate=" + wdate + "]";
 	}
-	
-	
 
 }
