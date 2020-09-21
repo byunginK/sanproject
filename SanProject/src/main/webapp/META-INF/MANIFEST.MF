@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: USER
+=======
+Built-By: rbsks
+>>>>>>> 5d4d831fdc9e2db9460bef6dc27eb976d34a14a2
 Build-Jdk: 1.8.0_261
 Created-By: Maven Integration for Eclipse
 
