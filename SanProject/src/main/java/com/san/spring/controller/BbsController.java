@@ -13,8 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.san.spring.service.BbsService;
+
 @Controller
 public class BbsController {
+	
+	@Autowired
+	private BbsService bbsService;
 	
 	private static Logger logger = LoggerFactory.getLogger(BbsController.class);
 	
@@ -23,7 +28,7 @@ public class BbsController {
 		
 		logger.info("bbslist " + new Date());
 		System.out.println(request.getSession().getAttribute("login")); // 세션 확인용
-		return "bbslist.tiles";
+		return "mainBbs.tiles";
 	}
 
 }

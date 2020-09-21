@@ -15,14 +15,37 @@ public class MemberServiceimpl implements MemberService {
 	}
 
 	@Override
-	public int checkid(String id) {
-		int result = Integer.parseInt(memberDao.checkId(id));
-		return result;
+	public String checkEmail(String email) {
+		return memberDao.checkEmail(email);
 	}
 
 	@Override
 	public MemberDto login(MemberDto dto) {
 		return memberDao.login(dto);
+	}
+
+	@Override
+	public boolean editMember(MemberDto memberDto) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteMember(String email, String password) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean searchMember(String email, String nickname) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public String checkNickName(String nickname) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

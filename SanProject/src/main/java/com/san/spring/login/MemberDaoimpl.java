@@ -19,13 +19,40 @@ public class MemberDaoimpl implements MemberDao {
 	}
 
 	@Override
-	public String checkId(String id) {
-		return sqlSession.selectOne("checkId", id);
+	public String checkEmail(String email) {
+		return sqlSession.selectOne("checkId", email);
 	}
 
 	@Override
 	public MemberDto login(MemberDto dto) {
 		return sqlSession.selectOne("login", dto);
 	}
+
+	@Override
+	public boolean editMember(MemberDto memberDto) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteMember(String email, String password) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean searchMember(String email, String nickname) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public String checkNickName(String nickname) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 }
