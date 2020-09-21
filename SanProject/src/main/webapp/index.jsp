@@ -9,11 +9,6 @@
 <body>
 <%
 response.sendRedirect("login.do");
-
-//response.sendRedirect("main.do");
-//response.sendRedirect("mainsearch.do");
-//response.sendRedirect("infomain.do");
-//response.sendRedirect("mypage.do");
 %>
 
 </body>

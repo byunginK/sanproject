@@ -11,13 +11,13 @@ public class BbsDto implements Serializable {
 	private String imgname;
 	private String originfilename;
 	private String wdate;
-	//검색을 위한 field
+	// 검색을 위한 field
 	private String choice;
 	private String searchWord;
-	
+
 	// paging을 위한 field
 	private int pageNumber;
-	private int recordCountPerPage = 1; // 1page에 1개의 사진 
+	private int recordCountPerPage = 1; // 1page에 1개의 사진
 	private int start = 1;
 	private int end = 10;
 
@@ -87,6 +87,62 @@ public class BbsDto implements Serializable {
 
 	public void setWdate(String wdate) {
 		this.wdate = wdate;
+	}
+
+	public int getPost_number() {
+		return post_number;
+	}
+
+	public void setPost_number(int post_number) {
+		this.post_number = post_number;
+	}
+
+	public String getChoice() {
+		return choice;
+	}
+
+	public void setChoice(String choice) {
+		this.choice = choice;
+	}
+
+	public String getSearchWord() {
+		return searchWord;
+	}
+
+	public void setSearchWord(String searchWord) {
+		this.searchWord = searchWord;
+	}
+
+	public int getPageNumber() {
+		return pageNumber;
+	}
+
+	public void setPageNumber(int pageNumber) {
+		this.pageNumber = pageNumber;
+	}
+
+	public int getRecordCountPerPage() {
+		return recordCountPerPage;
+	}
+
+	public void setRecordCountPerPage(int recordCountPerPage) {
+		this.recordCountPerPage = recordCountPerPage;
+	}
+
+	public int getStart() {
+		return start;
+	}
+
+	public void setStart(int start) {
+		this.start = start;
+	}
+
+	public int getEnd() {
+		return end;
+	}
+
+	public void setEnd(int end) {
+		this.end = end;
 	}
 
 	@Override
