@@ -2,16 +2,23 @@ package com.san.spring.daoimpl;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import com.san.spring.dao.BbsDao;
 import com.san.spring.dto.BbsDto;
 import com.san.spring.dto.BbsLikeDto;
 
+@Repository
 public class BbsDaoimpl implements BbsDao {
 
+	@Autowired
+	SqlSession sqlsession;
+	
 	@Override
-	public List<BbsDto> allBbsList(BbsDto bbsDto) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<BbsDto> allBbsList() {
+		return sqlsession.selectList("MainBbs.allBbsList");
 	}
 
 	@Override

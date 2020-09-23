@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="MainBbs">
+	<select id="allBbsList" resultType="com.san.spring.dto.BbsDto">
+		SELECT POST_NUMBER, EMAIL, TITLE, CONTENT, LOCATION, AUTH_CHECK, IMGNAME, ORIGINFILENAME, WDATE
+		FROM MAINBBS
+		ORDER BY WDATE DESC
+	</select>
+
+</mapper>  
