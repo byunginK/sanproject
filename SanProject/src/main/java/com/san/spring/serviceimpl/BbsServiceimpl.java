@@ -13,8 +13,8 @@ import com.san.spring.service.BbsService;
 @Service
 public class BbsServiceimpl implements BbsService {
 	
-	//@Autowired
-	//private BbsDao bbsDao;
+	@Autowired
+	private BbsDao bbsDao;
 
 	@Override
 	public List<BbsDto> allBbsList(BbsDto bbsDto) {
@@ -30,8 +30,8 @@ public class BbsServiceimpl implements BbsService {
 
 	@Override
 	public boolean addBbs(BbsDto bbsDto) {
-		// TODO Auto-generated method stub
-		return false;
+		System.out.println("ServiceImpl addBbs");
+		return bbsDao.addBbs(bbsDto);
 	}
 
 	@Override

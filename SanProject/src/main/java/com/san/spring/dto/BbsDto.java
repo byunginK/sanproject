@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class BbsDto implements Serializable {
 	private int post_number;
 	private String email;
+	private String title;
 	private String content;
 	private String location;
 	private int auth_check;
@@ -39,6 +40,14 @@ public class BbsDto implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getContent() {

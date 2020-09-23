@@ -13,7 +13,7 @@
 </div>
 <div id="menulist_wrap">
 	<div id="menulist">
-		<a href="#none">글쓰기</a>
+		<a href="./mainBbswrite.do">글쓰기</a>
 		<a href="#none">메뉴</a>
 		<a href="#none">오픈채팅</a>
 		<a href="#none">좋아요리스트</a>
