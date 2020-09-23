@@ -1,6 +1,7 @@
 package com.san.spring.dto;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 public class BbsDto implements Serializable {
 	private int post_number;
@@ -12,6 +13,8 @@ public class BbsDto implements Serializable {
 	private String imgname;
 	private String originfilename;
 	private String wdate;
+	private String[] imgs;
+	private String nickname;
 	// 검색을 위한 field
 	private String choice;
 	private String searchWord;
@@ -23,7 +26,55 @@ public class BbsDto implements Serializable {
 	private int end = 10;
 
 	public BbsDto() {
+	}
 
+
+
+	public BbsDto(int post_number, String email, String title, String content, String location, int auth_check,
+			String imgname, String originfilename, String wdate, String[] imgs, String nickname, String choice,
+			String searchWord, int pageNumber, int recordCountPerPage, int start, int end) {
+		super();
+		this.post_number = post_number;
+		this.email = email;
+		this.title = title;
+		this.content = content;
+		this.location = location;
+		this.auth_check = auth_check;
+		this.imgname = imgname;
+		this.originfilename = originfilename;
+		this.wdate = wdate;
+		this.imgs = imgs;
+		this.nickname = nickname;
+		this.choice = choice;
+		this.searchWord = searchWord;
+		this.pageNumber = pageNumber;
+		this.recordCountPerPage = recordCountPerPage;
+		this.start = start;
+		this.end = end;
+	}
+
+
+
+	public BbsDto(String email, String title, String content, String location, String imgname, String originfilename,
+			String choice, String searchWord, int pageNumber) {
+		super();
+		this.email = email;
+		this.title = title;
+		this.content = content;
+		this.location = location;
+		this.imgname = imgname;
+		this.originfilename = originfilename;
+		this.choice = choice;
+		this.searchWord = searchWord;
+		this.pageNumber = pageNumber;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 
 	public int getPost_Number() {
@@ -154,11 +205,20 @@ public class BbsDto implements Serializable {
 		this.end = end;
 	}
 
+	public String[] getImgs() {
+		return imgs;
+	}
+
+	public void setImgs(String[] imgs) {
+		this.imgs = imgs;
+	}
+
 	@Override
 	public String toString() {
-		return "BbsDto [post_number=" + post_number + ", email=" + email + ", content=" + content + ", location="
-				+ location + ", auth_check=" + auth_check + ", imgname=" + imgname + ", originfilename="
-				+ originfilename + ", wdate=" + wdate + "]";
+		return "BbsDto [post_number=" + post_number + ", email=" + email + ", title=" + title + ", content=" + content
+				+ ", location=" + location + ", auth_check=" + auth_check + ", imgname=" + imgname + ", originfilename="
+				+ originfilename + ", wdate=" + wdate + ", imgs=" + Arrays.toString(imgs) + ", nickname=" + nickname
+				+ "]";
 	}
 
 }

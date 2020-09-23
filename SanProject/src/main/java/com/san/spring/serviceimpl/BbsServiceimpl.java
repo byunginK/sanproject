@@ -1,5 +1,6 @@
 package com.san.spring.serviceimpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,18 @@ public class BbsServiceimpl implements BbsService {
 	private BbsDao bbsDao;
 
 	@Override
-	public List<BbsDto> allBbsList(BbsDto bbsDto) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<BbsDto> allBbsList() {
+		
+		List<BbsDto> list = bbsDao.allBbsList();
+		List<BbsDto> bbslist = new ArrayList<BbsDto>();
+		for (int i = 0; i < list.size(); i++) {
+			BbsDto dto = list.get(i);
+			String[] imgs = dto.getImgname().split("-");
+			dto.setImgs(imgs);
+			
+			bbslist.add(dto);
+		}
+		return bbslist;
 	}
 
 	@Override
