@@ -21,6 +21,10 @@
 		<put-attribute name="main" value="/WEB-INF/views/mainBbs/mainlist.jsp"/>
 	</definition>
 	
+	<definition name="mainBbsWrite.tiles" extends="mainBbs.tiles">
+		<put-attribute name="main" value="/WEB-INF/views/mainBbs/mainBbsWrite.jsp"/>
+	</definition>
+	
 	<definition name="mainSearch.tiles" extends="mainBbs.tiles">
 		<put-attribute name="main" value="/WEB-INF/views/mainBbs/mainsearch.jsp"/>
 	</definition>

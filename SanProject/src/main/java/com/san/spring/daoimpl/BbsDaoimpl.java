@@ -2,7 +2,8 @@ package com.san.spring.daoimpl;
 
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
+
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -12,13 +13,14 @@ import com.san.spring.dto.BbsLikeDto;
 
 @Repository
 public class BbsDaoimpl implements BbsDao {
-
+	
 	@Autowired
-	SqlSession sqlsession;
+	SqlSessionTemplate sqlSession;
+
 	
 	@Override
 	public List<BbsDto> allBbsList() {
-		return sqlsession.selectList("MainBbs.allBbsList");
+		return sqlSession.selectList("allBbsList");
 	}
 
 	@Override
@@ -29,8 +31,9 @@ public class BbsDaoimpl implements BbsDao {
 
 	@Override
 	public boolean addBbs(BbsDto bbsDto) {
-		// TODO Auto-generated method stub
-		return false;
+		System.out.println("DaoImpl addBbs");
+		int result = sqlSession.insert("addBbs", bbsDto);
+		return result>0?true:false;
 	}
 
 	@Override

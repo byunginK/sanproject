@@ -14,6 +14,7 @@ public class BbsDto implements Serializable {
 	private String originfilename;
 	private String wdate;
 	private String[] imgs;
+	private String nickname;
 	// 검색을 위한 field
 	private String choice;
 	private String searchWord;
@@ -26,16 +27,12 @@ public class BbsDto implements Serializable {
 
 	public BbsDto() {
 	}
-	
-	
-	
-	
 
 
 
 	public BbsDto(int post_number, String email, String title, String content, String location, int auth_check,
-			String imgname, String originfilename, String wdate, String[] imgs, String choice, String searchWord,
-			int pageNumber, int recordCountPerPage, int start, int end) {
+			String imgname, String originfilename, String wdate, String[] imgs, String nickname, String choice,
+			String searchWord, int pageNumber, int recordCountPerPage, int start, int end) {
 		super();
 		this.post_number = post_number;
 		this.email = email;
@@ -47,6 +44,7 @@ public class BbsDto implements Serializable {
 		this.originfilename = originfilename;
 		this.wdate = wdate;
 		this.imgs = imgs;
+		this.nickname = nickname;
 		this.choice = choice;
 		this.searchWord = searchWord;
 		this.pageNumber = pageNumber;
@@ -54,6 +52,7 @@ public class BbsDto implements Serializable {
 		this.start = start;
 		this.end = end;
 	}
+
 
 
 	public BbsDto(String email, String title, String content, String location, String imgname, String originfilename,
@@ -70,21 +69,13 @@ public class BbsDto implements Serializable {
 		this.pageNumber = pageNumber;
 	}
 
-
-
-	public String getTitle() {
-		return title;
+	public String getNickname() {
+		return nickname;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
-
-
-
-
-
-
 
 	public int getPost_Number() {
 		return post_number;
@@ -100,6 +91,14 @@ public class BbsDto implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getContent() {
@@ -210,22 +209,16 @@ public class BbsDto implements Serializable {
 		return imgs;
 	}
 
-
-
 	public void setImgs(String[] imgs) {
 		this.imgs = imgs;
 	}
-
 
 	@Override
 	public String toString() {
 		return "BbsDto [post_number=" + post_number + ", email=" + email + ", title=" + title + ", content=" + content
 				+ ", location=" + location + ", auth_check=" + auth_check + ", imgname=" + imgname + ", originfilename="
-				+ originfilename + ", wdate=" + wdate + ", imgs=" + Arrays.toString(imgs) + ", choice=" + choice
-				+ ", searchWord=" + searchWord + ", pageNumber=" + pageNumber + ", recordCountPerPage="
-				+ recordCountPerPage + ", start=" + start + ", end=" + end + "]";
+				+ originfilename + ", wdate=" + wdate + ", imgs=" + Arrays.toString(imgs) + ", nickname=" + nickname
+				+ "]";
 	}
-
-
 
 }

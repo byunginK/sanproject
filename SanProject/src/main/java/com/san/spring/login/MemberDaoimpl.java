@@ -14,17 +14,20 @@ public class MemberDaoimpl implements MemberDao {
 
 	@Override
 	public boolean addMember(MemberDto dto) {
+		System.out.println("memberImpl");
 		int result = sqlSession.insert("addMember", dto);
 		return result>0?true:false;
 	}
 
 	@Override
 	public String checkEmail(String email) {
+		System.out.println("memberImpl");
 		return sqlSession.selectOne("checkId", email);
 	}
 
 	@Override
 	public MemberDto login(MemberDto dto) {
+		System.out.println("memberImpl");
 		return sqlSession.selectOne("login", dto);
 	}
 
