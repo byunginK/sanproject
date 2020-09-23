@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.san.spring.dto.BbsDto;
 import com.san.spring.service.BbsService;
 
 @Controller
@@ -27,7 +28,13 @@ public class BbsController {
 	public String bbslist(Model model, HttpServletRequest request) {
 		
 		logger.info("bbslist " + new Date());
-		System.out.println(request.getSession().getAttribute("login")); // 세션 확인용
+		//System.out.println(request.getSession().getAttribute("login")); // 세션 확인용
+		
+		List<BbsDto> bbslist = bbsService.allBbsList();
+		
+		model.addAttribute("bbslist", bbslist);
+		
+		
 		return "mainBbs.tiles";
 	}
 
