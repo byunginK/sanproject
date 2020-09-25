@@ -30,7 +30,7 @@
 	</definition>
 	
 	<definition name="infomain.tiles" extends="mainBbs.tiles">
-	<put-attribute name="main" value="/WEB-INF/views/sanInfo/infomain.jsp"/>
+	<put-attribute name="main" value="/WEB-INF/views/sanInfo/mountainInfo.jsp"/>
 	</definition>
 	
 	<definition name="mypage.tiles" template="/WEB-INF/views/layout2-tiles.jsp">
