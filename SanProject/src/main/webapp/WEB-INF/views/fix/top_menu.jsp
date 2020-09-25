@@ -3,7 +3,7 @@
 
 <div id="mainLogo_wrap">
 	<div id="mainLogo">
-		<a href="#none">SanProject 로고</a>
+		<a href="./bbslist.do">SanProject 로고</a>
 	</div>
 </div>
 <div id="allSearch_wrap">
@@ -14,7 +14,7 @@
 <div id="menulist_wrap">
 	<div id="menulist">
 		<a href="./mainBbswrite.do">글쓰기</a>
-		<a href="#none">메뉴</a>
+		<a href="./mountainInformation.do">메뉴</a>
 		<a href="#none">오픈채팅</a>
 		<a href="#none">좋아요리스트</a>
 		<a href="#none">프로필</a>

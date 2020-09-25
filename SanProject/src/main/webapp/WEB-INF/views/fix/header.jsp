@@ -3,4 +3,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
 <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<link href="jquery.bxslider/jquery.bxslider.css" rel="stylesheet" />
+<script src="jquery.bxslider/jquery.bxslider.min.js"></script>
 
