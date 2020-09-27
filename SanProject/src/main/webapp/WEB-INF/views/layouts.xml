@@ -15,6 +15,10 @@
 		<put-attribute name="signup" value="/WEB-INF/views/login/regi.jsp"/>
 	</definition>
 	
+	<definition name="email.tiles" extends="regi.tiles">
+		<put-attribute name="signup" value="/WEB-INF/views/login/emailAuth.jsp"/>
+	</definition>
+	
 	<definition name="mainBbs.tiles" template="/WEB-INF/views/layouts-tiles.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/fix/header.jsp"/>
 		<put-attribute name="top_menu" value="/WEB-INF/views/fix/top_menu.jsp"/>

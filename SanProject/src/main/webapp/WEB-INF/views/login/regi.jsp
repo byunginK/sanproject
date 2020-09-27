@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <div align="left">
 	<h1 align="center" style="font-size: 50px;">
 		<font color="darkgreen"><b>산스타 회원가입</b></font>
@@ -17,8 +18,8 @@
 				<td><b>이메일 주소:</b></td>
 				<td><input type="text" style="width: 170px" name="email"
 					id="email" placeholder="sample@sansta.com" />
-					<p id="emailcheck" style="font-size: 8px"></p> <input type="button"
-					id="btn" value="email 확인"></td>
+					<p id="emailcheck" style="font-size: 8px"></p> <input type="submit"
+					id="btn" value="이메일 인증하기" ></td>
 			</tr>
 			<tr>
 				<td><b>비밀번호:</b></td>
@@ -130,4 +131,9 @@
 			}
 		}
 	}
+	$("#btn").click(function(){
+		let email = $("#email").val();
+		console.log(email);
+		location.href = "emailAuths.do?email="+email;
+		});
 </script>
