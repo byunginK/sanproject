@@ -74,4 +74,10 @@ public class BbsServiceimpl implements BbsService {
 		return false;
 	}
 
+	@Override
+	public int getLikeCount(int seq) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

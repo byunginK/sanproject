@@ -13,6 +13,7 @@ public interface BbsService {
 	boolean removeBbs(String seq); // 게시글 삭제
 	boolean updateBbs(BbsDto bbsDto); // 게시글 수정
 	
+	int getLikeCount(int seq); 	//게시물 좋아요 개수
 	boolean addLike(BbsLikeDto bbsLike); // 좋아요 셍성
 	boolean updateLike(BbsLikeDto bbsLike); // 좋아요 수정
 }
