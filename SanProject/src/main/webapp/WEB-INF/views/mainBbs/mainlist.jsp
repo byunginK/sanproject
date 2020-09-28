@@ -34,6 +34,12 @@
 					</td>
 
 				</tr>
+				
+				<tr>
+					<td><button type="button" onclick='getBbsLike("${bbs.post_number}","${login.email}")'>좋아요</button></td>
+					<td><input  class="like_count" type="text" onload="getLikeCount(${bbs.post_number})"></td>
+				</tr>
+				
 				<tr>
 					<th colspan="2">내용</th>
 				</tr>
@@ -58,5 +64,40 @@
 <script>
 	$(document).ready(function() {
 		$('.bxslider').bxSlider();
+
 	});
+
+function getBbsLike(post_number, email){
+	$.ajax({
+		url:'checkLike.do',
+		type:'get',
+		data:{'main_post_number':post_number, 'email':email},
+		success:function(data){
+		//	alert("success");
+		
+		},
+		error:function(){
+			alert("error");
+		}
+			
+	});
+}
+$(document).ready(function(){
+	function getLikeCount(post_number){
+		$.ajax({
+			url:"getLikeCount.do",
+			type:"GET",
+			data:{seq:post_number},
+			success:function(data){
+				alert(data);
+				$(".like_count").val(data);
+			},
+			error:function(){
+				alert("error");
+			}
+			
+		});
+	}
+});
+
 </script>

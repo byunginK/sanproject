@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.san.spring.dto.BbsDto;
+import com.san.spring.dto.BbsLikeDto;
 import com.san.spring.service.BbsService;
 
 @Controller
@@ -96,6 +97,20 @@ public class BbsController {
 		bbsDto.setImgname(imgName);
 		boolean addBbs = bbsService.addBbs(bbsDto);
 		return addBbs;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "checkLike.do", method = RequestMethod.GET)
+	public int checkLike(BbsLikeDto bbslike) {
+		System.out.println(bbslike.toString());
+
+		return bbsService.checkLike(bbslike);
+	}
+	@ResponseBody
+	@RequestMapping(value = "getLikeCount.do", method = RequestMethod.GET)
+	public int getLikeCount(int seq) {
+		System.out.println(bbsService.getLikeCount(seq));
+		return bbsService.getLikeCount(seq);
 	}
 
 }

@@ -16,6 +16,7 @@ public interface BbsDao {
 	boolean updateBbs(BbsDto bbsDto); // 게시글 수정
 	
 	int getLikeCount(int seq); 	//게시물 좋아요 개수
+	BbsLikeDto checkLike(BbsLikeDto bbsLike);// 좋아요를 눌렀는지 안눌렀는지 확인
 	boolean addLike(BbsLikeDto bbsLike); // 좋아요 셍성
 	boolean updateLike(BbsLikeDto bbsLike); // 좋아요 수정
 
