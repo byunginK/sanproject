@@ -56,14 +56,27 @@ public class BbsDaoimpl implements BbsDao {
 
 	@Override
 	public boolean addLike(BbsLikeDto bbsLike) {
-		// TODO Auto-generated method stub
-		return false;
+		int result = sqlSession.insert("addLike", bbsLike);
+		return result>0?true:false;
 	}
 
 	@Override
 	public boolean updateLike(BbsLikeDto bbsLike) {
-		// TODO Auto-generated method stub
-		return false;
+		int result = sqlSession.update("updateLike", bbsLike);
+		return result>0?true:false;
 	}
+
+	@Override
+	public int getLikeCount(int seq) {
+		
+		return sqlSession.selectOne("getLikeCount", seq);
+	}
+
+	@Override
+	public BbsLikeDto checkLike(BbsLikeDto bbsLike) {
+		return sqlSession.selectOne("checkLike", bbsLike);
+		
+	}
+	
 
 }

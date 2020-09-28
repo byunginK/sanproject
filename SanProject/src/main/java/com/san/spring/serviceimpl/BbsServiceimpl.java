@@ -62,16 +62,25 @@ public class BbsServiceimpl implements BbsService {
 		return false;
 	}
 
+
 	@Override
-	public boolean addLike(BbsLikeDto bbsLike) {
-		// TODO Auto-generated method stub
-		return false;
+	public int getLikeCount(int seq) {
+		return bbsDao.getLikeCount(seq);
 	}
 
 	@Override
-	public boolean updateLike(BbsLikeDto bbsLike) {
-		// TODO Auto-generated method stub
-		return false;
+	public int checkLike(BbsLikeDto bbsLike) {
+		BbsLikeDto dto = bbsDao.checkLike(bbsLike);	// check 만약 1이면 좋아요를 눌렀다는것이고 0이면 안누른 상태
+		if(dto == null) {
+			bbsDao.addLike(bbsLike);
+			return 1;
+		}
+		else {
+			bbsDao.updateLike(dto);
+			BbsLikeDto like = bbsDao.checkLike(dto);
+			return like.getLike_count();
+	
+		}
 	}
 
 }

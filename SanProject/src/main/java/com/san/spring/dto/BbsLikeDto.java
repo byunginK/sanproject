@@ -11,6 +11,12 @@ public class BbsLikeDto implements Serializable {
 	public BbsLikeDto() {
 
 	}
+	
+	public BbsLikeDto(String email, int main_post_number) {
+		super();
+		this.email = email;
+		this.main_post_number = main_post_number;
+	}
 
 	public int getLike_number() {
 		return like_number;
