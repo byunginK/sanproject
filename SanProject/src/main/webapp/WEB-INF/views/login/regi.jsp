@@ -18,8 +18,8 @@
 				<td><b>이메일 주소:</b></td>
 				<td><input type="text" style="width: 170px" name="email"
 					id="email" placeholder="sample@sansta.com" />
-					<p id="emailcheck" style="font-size: 8px"></p> <input type="submit"
-					id="btn" value="이메일 인증하기" ></td>
+					<input type="button" id="btn" value="이메일 인증하기">
+				</td>
 			</tr>
 			<tr>
 				<td><b>비밀번호:</b></td>
@@ -70,6 +70,7 @@
 		let email = document.getElementById("email");
 		let num1 = document.getElementById("num1");
 		let num2 = document.getElementById("num2");
+		let verification = document.getElementById("vfcheck");
 
 		// ------------ 이메일 까지 -----------
 		if (email.value == "") {
@@ -77,6 +78,13 @@
 			email.focus();
 			return false;
 		}
+
+		if (verification.value == "인증 완료") {
+			alert("이메일 인증을 완료해주세요");
+			email.focus();
+			return false;
+		}
+		
 
 		if (!check(re2, email, "적합하지 않은 이메일 형식입니다.")) {
 			return false;
@@ -131,9 +139,40 @@
 			}
 		}
 	}
+
+	let isRun = false;
+	
 	$("#btn").click(function(){
-		let email = $("#email").val();
-		console.log(email);
-		location.href = "emailAuths.do?email="+email;
-		});
+		if ($('input[name=email]').val() == "") {
+			alert("email을 입력해주세요");
+		} else if(isRun == true){
+			return;
+		}else{
+			isRun = true;
+			let email = $("#email").val();
+
+	        $.ajax({
+	           url : "emailAuths.do",
+	           type : "POST",
+			   data : {"email" : email},
+			   dataType : "text",	
+	           success : function(data) {
+	                 console.log(data);
+	                 input = "</br>" + "<input type=text name=vfcode value='"+ data +"' >"
+	                 		 + "<input type=button id=vfcheck value=인증>"
+	                 $("td:eq(3)").append(input);
+	                 $("#vfcheck").click(function(){
+		                 if($("input[name=vfcode]").val() == data){
+			                 alert("완료");
+			                 $("#vfcheck").val("인증 완료");
+			                 }
+			             
+		                 });
+	           },
+	           error : function() {
+	              alert("error");
+	           }
+	        });
+		}
+	});
 </script>

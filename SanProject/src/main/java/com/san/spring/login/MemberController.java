@@ -78,7 +78,7 @@ public class MemberController {
 		}
 	}
 	
-	@RequestMapping(value = "logout.do", method = {RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value = "logout.do", method = {RequestMethod.GET,RequestMethod.POST}, produces = "application/string;charset=utf-8")
 	public String logout(HttpServletRequest req) {
 		//세션 삭제
 		req.getSession().invalidate();
@@ -86,23 +86,19 @@ public class MemberController {
 		return "redirect:/login.do";
 	}
 	
-	@RequestMapping(value = "emailAuths.do")
-	public ModelAndView emailAuth(HttpServletResponse response, HttpServletRequest request) throws Exception {
+	@ResponseBody
+	@RequestMapping(value = "emailAuths.do", method = RequestMethod.POST)
+	public String emailAuth(HttpServletResponse response, HttpServletRequest request) throws Exception {
 
 		String email = request.getParameter("email");
 		String authNum = "";
 		authNum = RandomNum();
+		
 		System.out.println("email: "+email);
 		System.out.println("authNum: "+authNum);
-
 		sendEmail(email, authNum);
-
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("email", email);
-		mv.addObject("authNum", authNum);
-		mv.setViewName("email.tiles");
-
-		return mv;
+		
+		return authNum;
 	}
 	
 

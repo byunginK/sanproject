@@ -15,6 +15,7 @@ public interface BbsDao {
 	boolean removeBbs(String seq); // 게시글 삭제
 	boolean updateBbs(BbsDto bbsDto); // 게시글 수정
 	
+	int likeCount(int post_number);
 	int getLikeCount(int seq); 	//게시물 좋아요 개수
 	BbsLikeDto checkLike(BbsLikeDto bbsLike);// 좋아요를 눌렀는지 안눌렀는지 확인
 	boolean addLike(BbsLikeDto bbsLike); // 좋아요 셍성

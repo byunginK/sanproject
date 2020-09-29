@@ -68,7 +68,6 @@ public class BbsDaoimpl implements BbsDao {
 
 	@Override
 	public int getLikeCount(int seq) {
-		
 		return sqlSession.selectOne("getLikeCount", seq);
 	}
 
@@ -77,6 +76,15 @@ public class BbsDaoimpl implements BbsDao {
 		return sqlSession.selectOne("checkLike", bbsLike);
 		
 	}
+
+	@Override
+	public int likeCount(int post_number) {
+		return sqlSession.selectOne("likeCount", post_number);
+	}
+
+
+	
+	
 	
 
 }

@@ -3,19 +3,25 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.san.spring.dao.BbsDao">
+
 	<insert id="addBbs" parameterType="com.san.spring.dto.BbsDto">
 		INSERT INTO MAINBBS
 		VALUES(SEQ_MAINBBS.NEXTVAL,#{email},#{title},#{content},#{location},0,#{imgname},#{originfilename},SYSDATE)
 	</insert>
 
-	<select id="allBbsList" resultType="com.san.spring.dto.BbsDto">
-		SELECT DISTINCT
-		M.POST_NUMBER,M.EMAIL, M.TITLE, M.CONTENT,M.LOCATION, M.AUTH_CHECK,
-		M.IMGNAME,M.ORIGINFILENAME, M.WDATE,
-		B.NICKNAME, COUNT(L.LIKE_COUNT)OVER(PARTITION BY L.MAIN_POST_NUMBER) AS LIKECOUNT
-		FROM MAINBBS M , MAINLIKE L , MEMBER B
-		WHERE M.POST_NUMBER = L.MAIN_POST_NUMBER AND M.EMAIL = B.EMAIL
-		ORDER BY M.WDATE DESC
+	<select id="allBbsList" parameterType="java.lang.Integer" resultType="com.san.spring.dto.BbsDto">
+		SELECT b.POST_NUMBER,
+			b.EMAIL, b.TITLE, b.CONTENT, b.LOCATION, b.AUTH_CHECK, b.IMGNAME,
+			b.ORIGINFILENAME, b.WDATE, m.nickname
+			FROM MAINBBS b , MEMBER m
+			WHERE b.Email = m.Email
+			ORDER BY b.WDATE DESC
+	</select>
+	
+	<select id="likeCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		  SELECT COUNT(LIKE_COUNT)
+	      FROM MAINLIKE
+	      WHERE MAIN_POST_NUMBER = #{post_number} AND LIKE_COUNT = 1
 	</select>
 
 	<select id="checkLike"
@@ -38,7 +44,7 @@
 				SET LIKE_COUNT = 1
 			</otherwise>
 		</choose>
-		WHERE MAIN_POST_NUMBER = #{main_post_number}
+		WHERE MAIN_POST_NUMBER = #{main_post_number} AND EMAIL = #{email}
 
 	</update>
 
@@ -52,11 +58,11 @@
 
 	<select id="getLikeCount" parameterType="java.lang.Integer"
 		resultType="java.lang.Integer">
-		SELECT COUNT(LIKE_COUNT)
-		FORM MAINLIKE
-		WHERE MAIN_POST_NUMBER
-		= #{main_post_number}
+	   SELECT COUNT(LIKE_COUNT)
+       FROM MAINLIKE
+       WHERE MAIN_POST_NUMBER = #{main_post_number} AND LIKE_COUNT = 1
 	</select>
+
 
 </mapper>  
 

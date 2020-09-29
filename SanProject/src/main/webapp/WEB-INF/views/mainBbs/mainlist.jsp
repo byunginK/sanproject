@@ -37,7 +37,7 @@
 				
 				<tr>
 					<td><button type="button" onclick='getBbsLike("${bbs.post_number}","${login.email}")'>좋아요</button></td>
-					<td><input  class="like_count" type="text" value="${bbs.likecount }"></td>
+					<td><input  id="like_count${bbs.post_number}" type="text" value="${bbs.likecount}"></td>
 				</tr>
 				
 				<tr>
@@ -73,8 +73,7 @@ function getBbsLike(post_number, email){
 		type:'get',
 		data:{'main_post_number':post_number, 'email':email},
 		success:function(data){
-		//	alert("success");
-		
+			$("#like_count" + post_number).val(data);
 		},
 		error:function(){
 			alert("error");
@@ -82,22 +81,4 @@ function getBbsLike(post_number, email){
 			
 	});
 }
-$(document).ready(function(){
-	function getLikeCount(post_number){
-		$.ajax({
-			url:"getLikeCount.do",
-			type:"GET",
-			data:{seq:post_number},
-			success:function(data){
-				alert(data);
-				$(".like_count").val(data);
-			},
-			error:function(){
-				alert("error");
-			}
-			
-		});
-	}
-});
-
 </script>

@@ -27,6 +27,10 @@ public class BbsServiceimpl implements BbsService {
 			String[] imgs = dto.getImgname().split("-");
 			dto.setImgs(imgs);
 			
+			//시퀀스에 대한 좋아요 개수 넣기
+			int like = likeCount(dto.getPost_number());
+			dto.setLikecount(like);
+			
 			bbslist.add(dto);
 		}
 		return bbslist;
@@ -71,6 +75,7 @@ public class BbsServiceimpl implements BbsService {
 	@Override
 	public int checkLike(BbsLikeDto bbsLike) {
 		BbsLikeDto dto = bbsDao.checkLike(bbsLike);	// check 만약 1이면 좋아요를 눌렀다는것이고 0이면 안누른 상태
+		System.out.println(dto);
 		if(dto == null) {
 			bbsDao.addLike(bbsLike);
 			return 1;
@@ -82,5 +87,14 @@ public class BbsServiceimpl implements BbsService {
 	
 		}
 	}
+
+	@Override
+	public int likeCount(int post_number) {
+		return bbsDao.likeCount(post_number);
+	}
+
+
+	
+	
 
 }
