@@ -9,21 +9,26 @@
 	</insert>
 
 	<select id="allBbsList" resultType="com.san.spring.dto.BbsDto">
-		SELECT b.POST_NUMBER,
-		b.EMAIL, b.TITLE, b.CONTENT, b.LOCATION, b.AUTH_CHECK, b.IMGNAME,
-		b.ORIGINFILENAME, b.WDATE, m.nickname
-		FROM MAINBBS b , MEMBER m
-		WHERE b.Email = m.Email
-		ORDER BY b.WDATE DESC
+		SELECT DISTINCT
+		M.POST_NUMBER,M.EMAIL, M.TITLE, M.CONTENT,M.LOCATION, M.AUTH_CHECK,
+		M.IMGNAME,M.ORIGINFILENAME, M.WDATE,
+		B.NICKNAME, COUNT(L.LIKE_COUNT)OVER(PARTITION BY L.MAIN_POST_NUMBER) AS LIKECOUNT
+		FROM MAINBBS M , MAINLIKE L , MEMBER B
+		WHERE M.POST_NUMBER = L.MAIN_POST_NUMBER AND M.EMAIL = B.EMAIL
+		ORDER BY M.WDATE DESC
 	</select>
-	
-	<select id="checkLike" parameterType="com.san.spring.dto.BbsLikeDto" resultType="com.san.spring.dto.BbsLikeDto">
+
+	<select id="checkLike"
+		parameterType="com.san.spring.dto.BbsLikeDto"
+		resultType="com.san.spring.dto.BbsLikeDto">
 		SELECT *
 		FROM MAINLIKE
-		WHERE MAIN_POST_NUMBER = #{main_post_number} AND EMAIL = #{email}
+		WHERE MAIN_POST_NUMBER =
+		#{main_post_number} AND EMAIL = #{email}
 	</select>
-	
-	<update id="updateLike" parameterType="com.san.spring.dto.BbsLikeDto">
+
+	<update id="updateLike"
+		parameterType="com.san.spring.dto.BbsLikeDto">
 		UPDATE MAINLIKE
 		<choose>
 			<when test="like_count == 1">
@@ -34,18 +39,23 @@
 			</otherwise>
 		</choose>
 		WHERE MAIN_POST_NUMBER = #{main_post_number}
-	
+
 	</update>
-	
-	<insert id="addLike" parameterType="com.san.spring.dto.BbsLikeDto">
-		INSERT INTO MAINLIKE(LIKE_NUMBER, EMAIL, MAIN_POST_NUMBER, LIKE_COUNT)
-		VALUES(SEQ_LIKE.NEXTVAL, #{email}, #{main_post_number}, 1)
+
+	<insert id="addLike"
+		parameterType="com.san.spring.dto.BbsLikeDto">
+		INSERT INTO MAINLIKE(LIKE_NUMBER, EMAIL,
+		MAIN_POST_NUMBER, LIKE_COUNT)
+		VALUES(SEQ_LIKE.NEXTVAL, #{email},
+		#{main_post_number}, 1)
 	</insert>
-	
-	<select id="getLikeCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+
+	<select id="getLikeCount" parameterType="java.lang.Integer"
+		resultType="java.lang.Integer">
 		SELECT COUNT(LIKE_COUNT)
 		FORM MAINLIKE
-		WHERE MAIN_POST_NUMBER = #{main_post_number}
+		WHERE MAIN_POST_NUMBER
+		= #{main_post_number}
 	</select>
 
 </mapper>  
