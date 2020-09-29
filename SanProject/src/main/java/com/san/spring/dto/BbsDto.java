@@ -24,6 +24,8 @@ public class BbsDto implements Serializable {
 	private int recordCountPerPage = 1; // 1page에 1개의 사진
 	private int start = 1;
 	private int end = 10;
+	
+	private int likecount;
 
 	public BbsDto() {
 	}
@@ -32,7 +34,7 @@ public class BbsDto implements Serializable {
 
 	public BbsDto(int post_number, String email, String title, String content, String location, int auth_check,
 			String imgname, String originfilename, String wdate, String[] imgs, String nickname, String choice,
-			String searchWord, int pageNumber, int recordCountPerPage, int start, int end) {
+			String searchWord, int pageNumber, int recordCountPerPage, int start, int end, int likecount) {
 		super();
 		this.post_number = post_number;
 		this.email = email;
@@ -51,6 +53,7 @@ public class BbsDto implements Serializable {
 		this.recordCountPerPage = recordCountPerPage;
 		this.start = start;
 		this.end = end;
+		this.likecount = likecount;
 	}
 
 
@@ -68,6 +71,16 @@ public class BbsDto implements Serializable {
 		this.searchWord = searchWord;
 		this.pageNumber = pageNumber;
 	}
+
+	public int getLikecount() {
+		return likecount;
+	}
+
+	public void setLikecount(int likecount) {
+		this.likecount = likecount;
+	}
+
+
 
 	public String getNickname() {
 		return nickname;

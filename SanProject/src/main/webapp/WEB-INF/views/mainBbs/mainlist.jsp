@@ -37,7 +37,7 @@
 				
 				<tr>
 					<td><button type="button" onclick='getBbsLike("${bbs.post_number}","${login.email}")'>좋아요</button></td>
-					<td><input  class="like_count" type="text" onload="getLikeCount(${bbs.post_number})"></td>
+					<td><input  class="like_count" type="text" value="${bbs.likecount }"></td>
 				</tr>
 				
 				<tr>
