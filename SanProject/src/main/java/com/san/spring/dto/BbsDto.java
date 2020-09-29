@@ -226,12 +226,16 @@ public class BbsDto implements Serializable {
 		this.imgs = imgs;
 	}
 
+
+
 	@Override
 	public String toString() {
 		return "BbsDto [post_number=" + post_number + ", email=" + email + ", title=" + title + ", content=" + content
 				+ ", location=" + location + ", auth_check=" + auth_check + ", imgname=" + imgname + ", originfilename="
 				+ originfilename + ", wdate=" + wdate + ", imgs=" + Arrays.toString(imgs) + ", nickname=" + nickname
-				+ "]";
+				+ ", likecount=" + likecount + "]";
 	}
+
+	
 
 }

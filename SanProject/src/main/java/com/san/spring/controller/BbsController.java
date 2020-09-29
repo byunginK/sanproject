@@ -33,7 +33,6 @@ public class BbsController {
 	@RequestMapping(value = "bbslist.do", method = {RequestMethod.GET,RequestMethod.POST})
 	public String bbslist(Model model, HttpServletRequest request) {
 		
-		logger.info("bbslist " + new Date());
 		List<BbsDto> bbslist = bbsService.allBbsList();
 		System.out.println(bbslist);
 		model.addAttribute("bbslist", bbslist);
@@ -102,10 +101,11 @@ public class BbsController {
 	@ResponseBody
 	@RequestMapping(value = "checkLike.do", method = RequestMethod.GET)
 	public int checkLike(BbsLikeDto bbslike) {
-		System.out.println(bbslike.toString());
-
-		return bbsService.checkLike(bbslike);
+		System.out.println(bbslike);
+		bbsService.checkLike(bbslike);
+		return bbsService.getLikeCount(bbslike.getMain_post_number());
 	}
+	
 	@ResponseBody
 	@RequestMapping(value = "getLikeCount.do", method = RequestMethod.GET)
 	public int getLikeCount(int seq) {

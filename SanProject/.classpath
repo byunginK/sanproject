@@ -21,6 +21,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_261"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Documents/카카오톡 받은 파일/smtp.jar/smtp.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rbsks/Documents/카카오톡 받은 파일/SMTPJA~1/smtp.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
