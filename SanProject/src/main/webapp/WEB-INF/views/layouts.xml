@@ -11,6 +11,10 @@
 		<put-attribute name="login" value="/WEB-INF/views/login/login.jsp"/>
 	</definition>
 	
+	<definition name="kakao.tiles" template="/WEB-INF/views/layouts-tiles-kakao.jsp">
+		<put-attribute name="kakao" value="/WEB-INF/views/login/kakao.jsp"/>
+	</definition>
+	
 	<definition name="regi.tiles" template="/WEB-INF/views/layouts-tiles-signup.jsp">
 		<put-attribute name="signup" value="/WEB-INF/views/login/regi.jsp"/>
 	</definition>
