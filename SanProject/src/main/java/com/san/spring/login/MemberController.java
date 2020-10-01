@@ -37,34 +37,35 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 
-	@RequestMapping(value = "login_before.do", method = { RequestMethod.GET, RequestMethod.POST }) // get, post 들어오는 방식 중 하나 선택
+	@RequestMapping(value = "login_before.do", method = { RequestMethod.GET, RequestMethod.POST }) // get, post 들어오는 방식
+																									// 중 하나 선택
 	public String login(HttpSession session, Model model) {
 		// (외부로부터 들어오는 값(object, String), Model,HttpServletRequest)
 		String kakaoUrl = KakaoController.getAuthorizationUrl(session);
 
-
 		/* 생성한 인증 URL을 View로 전달 */
 		model.addAttribute("kakao_url", kakaoUrl);
-		 logger.info("login_before has started !!" + kakaoUrl);
+		logger.info("login_before has started !!" + kakaoUrl);
 
 		return "login.tiles"; // -> *.jsp 이 아니라 layouts.xml에 설정한 name값으로
 	}
+
 	/**
 	 * 카카오 로그인 콜백
 	 *
 	 * @return String
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "login.do", method = { RequestMethod.GET, RequestMethod.POST }) 
+	@RequestMapping(value = "login.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String getKakaoSignIn(ModelMap model, @RequestParam("code") String code, HttpSession session)
 			throws Exception {
 
 		JsonNode userInfo = KakaoController.getKakaoUserInfo(code);
-		
+
 		logger.info("login " + new Date());
 		logger.info("code : " + code);
 		logger.info("userinfo : " + userInfo);
-		
+
 		return "mainBbs.tiles";
 	}
 
@@ -106,44 +107,33 @@ public class MemberController {
 			return "redirect:/login.do";
 		}
 	}
-<<<<<<< HEAD
 
-	@RequestMapping(value = "logout.do", method = { RequestMethod.GET, RequestMethod.POST })
-=======
-	
-	@RequestMapping(value = "logout.do", method = {RequestMethod.GET,RequestMethod.POST}, produces = "application/string;charset=utf-8")
->>>>>>> branch 'master' of https://github.com/byunginK/sanproject.git
+	@RequestMapping(value = "logout.do", method = { RequestMethod.GET,
+			RequestMethod.POST }, produces = "application/string;charset=utf-8")
+
 	public String logout(HttpServletRequest req) {
 		// 세션 삭제
 		req.getSession().invalidate();
 
 		return "redirect:/login.do";
 	}
-<<<<<<< HEAD
 
-	@RequestMapping(value = "emailAuths.do")
-	public ModelAndView emailAuth(HttpServletResponse response, HttpServletRequest request) throws Exception {
-=======
-	
 	@ResponseBody
 	@RequestMapping(value = "emailAuths.do", method = RequestMethod.POST)
 	public String emailAuth(HttpServletResponse response, HttpServletRequest request) throws Exception {
->>>>>>> branch 'master' of https://github.com/byunginK/sanproject.git
 
 		String email = request.getParameter("email");
 		String authNum = "";
 		authNum = RandomNum();
-<<<<<<< HEAD
+
 		System.out.println("email: " + email);
 		System.out.println("authNum: " + authNum);
 
-=======
-		
-		System.out.println("email: "+email);
-		System.out.println("authNum: "+authNum);
->>>>>>> branch 'master' of https://github.com/byunginK/sanproject.git
+		System.out.println("email: " + email);
+		System.out.println("authNum: " + authNum);
+
 		sendEmail(email, authNum);
-		
+
 		return authNum;
 	}
 
