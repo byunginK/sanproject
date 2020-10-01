@@ -33,6 +33,7 @@ public class BbsController {
 	@RequestMapping(value = "bbslist.do", method = {RequestMethod.GET,RequestMethod.POST})
 	public String bbslist(Model model, HttpServletRequest request) {
 		
+		logger.info("bbslist " + new Date());
 		List<BbsDto> bbslist = bbsService.allBbsList();
 		System.out.println(bbslist);
 		model.addAttribute("bbslist", bbslist);
