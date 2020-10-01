@@ -106,32 +106,45 @@ public class MemberController {
 			return "redirect:/login.do";
 		}
 	}
+<<<<<<< HEAD
 
 	@RequestMapping(value = "logout.do", method = { RequestMethod.GET, RequestMethod.POST })
+=======
+	
+	@RequestMapping(value = "logout.do", method = {RequestMethod.GET,RequestMethod.POST}, produces = "application/string;charset=utf-8")
+>>>>>>> branch 'master' of https://github.com/byunginK/sanproject.git
 	public String logout(HttpServletRequest req) {
 		// 세션 삭제
 		req.getSession().invalidate();
 
 		return "redirect:/login.do";
 	}
+<<<<<<< HEAD
 
 	@RequestMapping(value = "emailAuths.do")
 	public ModelAndView emailAuth(HttpServletResponse response, HttpServletRequest request) throws Exception {
+=======
+	
+	@ResponseBody
+	@RequestMapping(value = "emailAuths.do", method = RequestMethod.POST)
+	public String emailAuth(HttpServletResponse response, HttpServletRequest request) throws Exception {
+>>>>>>> branch 'master' of https://github.com/byunginK/sanproject.git
 
 		String email = request.getParameter("email");
 		String authNum = "";
 		authNum = RandomNum();
+<<<<<<< HEAD
 		System.out.println("email: " + email);
 		System.out.println("authNum: " + authNum);
 
+=======
+		
+		System.out.println("email: "+email);
+		System.out.println("authNum: "+authNum);
+>>>>>>> branch 'master' of https://github.com/byunginK/sanproject.git
 		sendEmail(email, authNum);
-
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("email", email);
-		mv.addObject("authNum", authNum);
-		mv.setViewName("email.tiles");
-
-		return mv;
+		
+		return authNum;
 	}
 
 	// 난수 발생()
