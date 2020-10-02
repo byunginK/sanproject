@@ -31,10 +31,11 @@ public class BbsController {
 	private static Logger logger = LoggerFactory.getLogger(BbsController.class);
 	
 	@RequestMapping(value = "bbslist.do", method = {RequestMethod.GET,RequestMethod.POST})
-	public String bbslist(Model model, HttpServletRequest request) {
+	public String bbslist(Model model, HttpServletRequest request, BbsDto bbs) {
 		
 		logger.info("bbslist " + new Date());
-		List<BbsDto> bbslist = bbsService.allBbsList();
+		
+		List<BbsDto> bbslist = bbsService.allBbsList(bbs);
 		System.out.println(bbslist);
 		model.addAttribute("bbslist", bbslist);
 		return "mainBbs.tiles";
@@ -112,6 +113,19 @@ public class BbsController {
 	public int getLikeCount(int seq) {
 		System.out.println(bbsService.getLikeCount(seq));
 		return bbsService.getLikeCount(seq);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "addlist.do", method = {RequestMethod.GET,RequestMethod.POST})
+	public List<BbsDto> addlist(BbsDto bbs){
+		int nowPage = bbs.getPageNumber();
+		int start = nowPage*2+1;
+		int end = start + 1;
+		
+		bbs.setStart(start);
+		bbs.setEnd(end);
+		List<BbsDto> bbslist = bbsService.allBbsList(bbs);
+		return bbslist;
 	}
 
 }

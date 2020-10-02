@@ -21,9 +21,8 @@ public class BbsDto implements Serializable {
 
 	// paging을 위한 field
 	private int pageNumber;
-	private int recordCountPerPage = 1; // 1page에 1개의 사진
 	private int start = 1;
-	private int end = 10;
+	private int end = 2;
 	
 	private int likecount;
 
@@ -34,7 +33,7 @@ public class BbsDto implements Serializable {
 
 	public BbsDto(int post_number, String email, String title, String content, String location, int auth_check,
 			String imgname, String originfilename, String wdate, String[] imgs, String nickname, String choice,
-			String searchWord, int pageNumber, int recordCountPerPage, int start, int end, int likecount) {
+			String searchWord, int pageNumber,  int start, int end, int likecount) {
 		super();
 		this.post_number = post_number;
 		this.email = email;
@@ -50,7 +49,6 @@ public class BbsDto implements Serializable {
 		this.choice = choice;
 		this.searchWord = searchWord;
 		this.pageNumber = pageNumber;
-		this.recordCountPerPage = recordCountPerPage;
 		this.start = start;
 		this.end = end;
 		this.likecount = likecount;
@@ -194,14 +192,6 @@ public class BbsDto implements Serializable {
 		this.pageNumber = pageNumber;
 	}
 
-	public int getRecordCountPerPage() {
-		return recordCountPerPage;
-	}
-
-	public void setRecordCountPerPage(int recordCountPerPage) {
-		this.recordCountPerPage = recordCountPerPage;
-	}
-
 	public int getStart() {
 		return start;
 	}
@@ -233,9 +223,9 @@ public class BbsDto implements Serializable {
 		return "BbsDto [post_number=" + post_number + ", email=" + email + ", title=" + title + ", content=" + content
 				+ ", location=" + location + ", auth_check=" + auth_check + ", imgname=" + imgname + ", originfilename="
 				+ originfilename + ", wdate=" + wdate + ", imgs=" + Arrays.toString(imgs) + ", nickname=" + nickname
-				+ ", likecount=" + likecount + "]";
+				+ ", choice=" + choice + ", searchWord=" + searchWord + ", pageNumber=" + pageNumber + ", start="
+				+ start + ", end=" + end + ", likecount=" + likecount + "]";
 	}
 
-	
 
 }

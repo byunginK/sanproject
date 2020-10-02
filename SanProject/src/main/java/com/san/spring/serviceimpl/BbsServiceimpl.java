@@ -18,9 +18,9 @@ public class BbsServiceimpl implements BbsService {
 	private BbsDao bbsDao;
 
 	@Override
-	public List<BbsDto> allBbsList() {
+	public List<BbsDto> allBbsList(BbsDto bbs) {
 		
-		List<BbsDto> list = bbsDao.allBbsList();
+		List<BbsDto> list = bbsDao.allBbsList(bbs);
 		List<BbsDto> bbslist = new ArrayList<BbsDto>();
 		for (int i = 0; i < list.size(); i++) {
 			BbsDto dto = list.get(i);
