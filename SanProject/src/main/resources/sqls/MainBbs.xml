@@ -9,13 +9,12 @@
 		VALUES(SEQ_MAINBBS.NEXTVAL,#{email},#{title},#{content},#{location},0,#{imgname},#{originfilename},SYSDATE)
 	</insert>
 
-	<select id="allBbsList" parameterType="java.lang.Integer" resultType="com.san.spring.dto.BbsDto">
-		SELECT b.POST_NUMBER,
-			b.EMAIL, b.TITLE, b.CONTENT, b.LOCATION, b.AUTH_CHECK, b.IMGNAME,
-			b.ORIGINFILENAME, b.WDATE, m.nickname
-			FROM MAINBBS b , MEMBER m
-			WHERE b.Email = m.Email
-			ORDER BY b.WDATE DESC
+	<select id="allBbsList" parameterType="com.san.spring.dto.BbsDto" resultType="com.san.spring.dto.BbsDto">
+		SELECT POST_NUMBER, EMAIL, TITLE, CONTENT, LOCATION, AUTH_CHECK,IMGNAME, ORIGINFILENAME, WDATE,NICKNAME
+		FROM (SELECT ROW_NUMBER()OVER(ORDER BY WDATE DESC)AS RNUM, b.POST_NUMBER, b.EMAIL, b.TITLE, b.CONTENT, b.LOCATION, b.AUTH_CHECK,b.IMGNAME, b.ORIGINFILENAME, b.WDATE,m.NICKNAME
+			 FROM MAINBBS b, MEMBER m
+			 WHERE b.EMAIL = m.EMAIL ORDER BY b.WDATE DESC)
+		WHERE RNUM BETWEEN #{start} AND #{end}
 	</select>
 	
 	<select id="likeCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
@@ -50,10 +49,8 @@
 
 	<insert id="addLike"
 		parameterType="com.san.spring.dto.BbsLikeDto">
-		INSERT INTO MAINLIKE(LIKE_NUMBER, EMAIL,
-		MAIN_POST_NUMBER, LIKE_COUNT)
-		VALUES(SEQ_LIKE.NEXTVAL, #{email},
-		#{main_post_number}, 1)
+		INSERT INTO MAINLIKE(LIKE_NUMBER, EMAIL,MAIN_POST_NUMBER, LIKE_COUNT)
+		VALUES(SEQ_LIKE.NEXTVAL, #{email},#{main_post_number}, 1)
 	</insert>
 
 	<select id="getLikeCount" parameterType="java.lang.Integer"

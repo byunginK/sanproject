@@ -19,8 +19,8 @@ public class BbsDaoimpl implements BbsDao {
 
 	
 	@Override
-	public List<BbsDto> allBbsList() {
-		return sqlSession.selectList("allBbsList");
+	public List<BbsDto> allBbsList(BbsDto bbs) {
+		return sqlSession.selectList("allBbsList",bbs);
 	}
 
 	@Override
