@@ -52,14 +52,18 @@ ${login.nickname }님 안녕하세요
 			src="image/kakao_login_medium_wide.png" /></a> -->
 
 		<div id="kakaoLogin" style="text-align: center">
-			<a href= "${kakao_url}"> <img
-				src="image/kakao_login_medium_wide.png" /></a>
+			<a href="${kakao_url}"> <img
+				src="image/kakao_login_medium_wide.png" width="300" height="60"/></a>
+		</div>
+		<div id="naverLogin" style="text-align: center">
+			<a href="${naver_url}"> <img
+				src="image/nal.PNG" width="300" /></a>
 		</div>
 
 		<br> <a href="regi.do">회원가입</a> <a
 			href="https://careers.kakao.com/login">카카오로그인</a> <a
 			href="https://nid.naver.com/nidlogin.login?url=">네이버로그인</a> <a
-			href="https://accounts.google.com/login/signinchooser?flowName=GlifWebSignIn&flowEntry=ServiceLogin">구글로그인</a>
+			href="https://accounts.google.com/login/signinchoos er?flowName=GlifWebSignIn&flowEntry=ServiceLogin">구글로그인</a>
 	</center>
 
 
