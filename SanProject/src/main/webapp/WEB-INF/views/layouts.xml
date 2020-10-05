@@ -25,6 +25,10 @@
 		<put-attribute name="main" value="/WEB-INF/views/mainBbs/mainlist.jsp"/>
 	</definition>
 	
+	<definition name="mainBbsDetail.tiles" extends="mainBbs.tiles">
+		<put-attribute name="main" value="/WEB-INF/views/mainBbs/mainBbsDetail.jsp"/>
+	</definition>
+	
 	<definition name="mainBbsWrite.tiles" extends="mainBbs.tiles">
 		<put-attribute name="main" value="/WEB-INF/views/mainBbs/mainBbsWrite.jsp"/>
 	</definition>
@@ -43,4 +47,6 @@
 		<put-attribute name="main" value="/WEB-INF/views/myPage/maintest.jsp"/>
 		<put-attribute name="left_bar" value="/WEB-INF/views/fix/left-test.jsp"/>
 	</definition>
+	
+	
 </tiles-definitions>

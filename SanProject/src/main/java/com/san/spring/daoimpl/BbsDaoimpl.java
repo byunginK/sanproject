@@ -19,8 +19,8 @@ public class BbsDaoimpl implements BbsDao {
 
 	
 	@Override
-	public List<BbsDto> allBbsList() {
-		return sqlSession.selectList("allBbsList");
+	public List<BbsDto> allBbsList(BbsDto bbsDto) {
+		return sqlSession.selectList("allBbsList", bbsDto);
 	}
 
 	@Override
@@ -38,8 +38,7 @@ public class BbsDaoimpl implements BbsDao {
 
 	@Override
 	public BbsDto getBbs(String seq) {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne("getBbs", seq);
 	}
 
 	@Override

@@ -18,9 +18,9 @@ public class BbsServiceimpl implements BbsService {
 	private BbsDao bbsDao;
 
 	@Override
-	public List<BbsDto> allBbsList() {
+	public List<BbsDto> allBbsList(BbsDto bbsDto) {
 		
-		List<BbsDto> list = bbsDao.allBbsList();
+		List<BbsDto> list = bbsDao.allBbsList(bbsDto);
 		List<BbsDto> bbslist = new ArrayList<BbsDto>();
 		for (int i = 0; i < list.size(); i++) {
 			BbsDto dto = list.get(i);
@@ -50,8 +50,16 @@ public class BbsServiceimpl implements BbsService {
 
 	@Override
 	public BbsDto getBbs(String seq) {
-		// TODO Auto-generated method stub
-		return null;
+		
+			BbsDto dto = bbsDao.getBbs(seq);
+			String[] imgs = dto.getImgname().split("-");
+			dto.setImgs(imgs);
+			
+			//시퀀스에 대한 좋아요 개수 넣기
+			int like = likeCount(dto.getPost_number());
+			dto.setLikecount(like);
+			
+		return dto;
 	}
 
 	@Override
@@ -92,9 +100,5 @@ public class BbsServiceimpl implements BbsService {
 	public int likeCount(int post_number) {
 		return bbsDao.likeCount(post_number);
 	}
-
-
-	
-	
 
 }
