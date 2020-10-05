@@ -4,8 +4,11 @@
 <div id="content_wrap">
 	<h2>main</h2>
 
+	
 	<c:forEach items="${bbslist }" var="bbs">
 		<input type="hidden" id="email" name="email" value="${login.email}">
+
+
 			<table border="1" class="maintb">
 				<tr>
 					<th>작성자</th>
@@ -52,6 +55,7 @@
 		<br>
 		<br>
 	</c:forEach>
+	
 </div>
 <div id="chat_wrap">
 	<div id="openchat">
@@ -64,15 +68,15 @@
 <script>
 	$(document).ready(function() {
 		$('.bxslider').bxSlider();
-
+		
 	});
 
 	$(document).on('scroll', function(){
 		$('.bxslider').bxSlider();
 	});
-	console.log(Math.round($("#content_wrap").height()));
+	
 	let test = window.innerHeight;
-	console.log(test);
+
 	let np = 0;
 	$(window).scroll(function() {
         
@@ -160,4 +164,20 @@
 		});
 	   
 	}
+
+function getBbsLike(post_number, email){
+	$.ajax({
+		url:'checkLike.do',
+		type:'get',
+		data:{'main_post_number':post_number, 'email':email},
+		success:function(data){
+			$("#like_count" + post_number).val(data);
+		},
+		error:function(){
+			alert("error");
+		}
+			
+	});
+}
+
 </script>

@@ -6,6 +6,7 @@ import com.san.spring.dto.BbsLikeDto;
 
 public interface BbsDao {
 	
+
 	List<BbsDto> allBbsList(BbsDto bbsDto); // 전제 게시글 list 
 	int getBbsCount(BbsDto bbsDtd); // 페이징 수
 	boolean addBbs(BbsDto bbsDto); // 게시글 생성

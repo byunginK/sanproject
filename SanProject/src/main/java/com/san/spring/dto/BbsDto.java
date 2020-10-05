@@ -25,7 +25,7 @@ public class BbsDto implements Serializable {
 	private int pageNumber;
 	private int start = 1;
 	private int end = 2;
-	
+
 
 	public int getLikecount() {
 		return likecount;
@@ -178,9 +178,9 @@ public class BbsDto implements Serializable {
 		return "BbsDto [post_number=" + post_number + ", email=" + email + ", title=" + title + ", content=" + content
 				+ ", location=" + location + ", auth_check=" + auth_check + ", imgname=" + imgname + ", originfilename="
 				+ originfilename + ", wdate=" + wdate + ", imgs=" + Arrays.toString(imgs) + ", nickname=" + nickname
-				+ ", likecount=" + likecount + "]";
+				+ ", choice=" + choice + ", searchWord=" + searchWord + ", pageNumber=" + pageNumber + ", start="
+				+ start + ", end=" + end + ", likecount=" + likecount + "]";
 	}
 
-	
 
 }

@@ -17,7 +17,7 @@ public class BbsServiceimpl implements BbsService {
 	@Autowired
 	private BbsDao bbsDao;
 
-	@Override
+
 	public List<BbsDto> allBbsList(BbsDto bbsDto) {
 		
 		List<BbsDto> list = bbsDao.allBbsList(bbsDto);
