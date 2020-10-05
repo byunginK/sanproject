@@ -36,7 +36,12 @@ public class BbsController {
 	
 	@RequestMapping(value = "bbslist.do", method = {RequestMethod.GET,RequestMethod.POST})
 	public String bbslist(Model model, BbsDto bbsDto) {
+		int nowPage = bbsDto.getPageNumber();
+		int start = nowPage*2+1;
+		int end = start + 1;
 		
+		bbsDto.setStart(start);
+		bbsDto.setEnd(end);
 		List<BbsDto> bbslist = bbsService.allBbsList(bbsDto);
 		System.out.println(bbslist);
 		model.addAttribute("bbslist", bbslist);
