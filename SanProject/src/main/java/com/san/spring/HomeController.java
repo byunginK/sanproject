@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.san.spring.controller.Kakao_restapi;
 
 /**
  * Handles requests for the application home page.
