@@ -59,6 +59,13 @@
        FROM MAINLIKE
        WHERE MAIN_POST_NUMBER = #{main_post_number} AND LIKE_COUNT = 1
 	</select>
+	
+	<select id="getBbs" parameterType="String" resultType="com.san.spring.dto.BbsDto">
+		SELECT
+		b.POST_NUMBER,b.EMAIL, b.TITLE, b.CONTENT, b.LOCATION, b.AUTH_CHECK, b.IMGNAME,b.ORIGINFILENAME, b.WDATE, m.nickname
+		FROM MAINBBS b , MEMBER m
+		WHERE b.Email = m.Email AND POST_NUMBER = #{post_number}
+	</select>
 
 
 </mapper>  

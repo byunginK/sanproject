@@ -15,6 +15,8 @@ public class BbsDto implements Serializable {
 	private String wdate;
 	private String[] imgs;
 	private String nickname;
+	private int likecount;
+	
 	// 검색을 위한 field
 	private String choice;
 	private String searchWord;
@@ -23,52 +25,7 @@ public class BbsDto implements Serializable {
 	private int pageNumber;
 	private int start = 1;
 	private int end = 2;
-	
-	private int likecount;
 
-	public BbsDto() {
-	}
-
-
-
-	public BbsDto(int post_number, String email, String title, String content, String location, int auth_check,
-			String imgname, String originfilename, String wdate, String[] imgs, String nickname, String choice,
-			String searchWord, int pageNumber,  int start, int end, int likecount) {
-		super();
-		this.post_number = post_number;
-		this.email = email;
-		this.title = title;
-		this.content = content;
-		this.location = location;
-		this.auth_check = auth_check;
-		this.imgname = imgname;
-		this.originfilename = originfilename;
-		this.wdate = wdate;
-		this.imgs = imgs;
-		this.nickname = nickname;
-		this.choice = choice;
-		this.searchWord = searchWord;
-		this.pageNumber = pageNumber;
-		this.start = start;
-		this.end = end;
-		this.likecount = likecount;
-	}
-
-
-
-	public BbsDto(String email, String title, String content, String location, String imgname, String originfilename,
-			String choice, String searchWord, int pageNumber) {
-		super();
-		this.email = email;
-		this.title = title;
-		this.content = content;
-		this.location = location;
-		this.imgname = imgname;
-		this.originfilename = originfilename;
-		this.choice = choice;
-		this.searchWord = searchWord;
-		this.pageNumber = pageNumber;
-	}
 
 	public int getLikecount() {
 		return likecount;
@@ -215,8 +172,6 @@ public class BbsDto implements Serializable {
 	public void setImgs(String[] imgs) {
 		this.imgs = imgs;
 	}
-
-
 
 	@Override
 	public String toString() {

@@ -20,22 +20,24 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.san.spring.dto.BbsDto;
 import com.san.spring.dto.BbsLikeDto;
+import com.san.spring.dto.CommentDto;
 import com.san.spring.service.BbsService;
+import com.san.spring.service.CommentService;
 
 @Controller
 public class BbsController {
 	
 	@Autowired
 	private BbsService bbsService;
+	@Autowired
+	private CommentService commentService;
 	
 	private static Logger logger = LoggerFactory.getLogger(BbsController.class);
 	
 	@RequestMapping(value = "bbslist.do", method = {RequestMethod.GET,RequestMethod.POST})
-	public String bbslist(Model model, HttpServletRequest request, BbsDto bbs) {
+	public String bbslist(Model model, BbsDto bbsDto) {
 		
-		logger.info("bbslist " + new Date());
-		
-		List<BbsDto> bbslist = bbsService.allBbsList(bbs);
+		List<BbsDto> bbslist = bbsService.allBbsList(bbsDto);
 		System.out.println(bbslist);
 		model.addAttribute("bbslist", bbslist);
 		return "mainBbs.tiles";
@@ -85,10 +87,8 @@ public class BbsController {
 				mf.transferTo(new File(path + imgName));
 				System.out.println(path + imgName);
 			} catch (IllegalStateException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -117,15 +117,26 @@ public class BbsController {
 	
 	@ResponseBody
 	@RequestMapping(value = "addlist.do", method = {RequestMethod.GET,RequestMethod.POST})
-	public List<BbsDto> addlist(BbsDto bbs){
-		int nowPage = bbs.getPageNumber();
+	public List<BbsDto> addlist(BbsDto bbsDto){
+		int nowPage = bbsDto.getPageNumber();
 		int start = nowPage*2+1;
 		int end = start + 1;
 		
-		bbs.setStart(start);
-		bbs.setEnd(end);
-		List<BbsDto> bbslist = bbsService.allBbsList(bbs);
+		bbsDto.setStart(start);
+		bbsDto.setEnd(end);
+		List<BbsDto> bbslist = bbsService.allBbsList(bbsDto);
 		return bbslist;
+	}
+	
+	@RequestMapping(value = "goBbsDetail.do", method = RequestMethod.GET )
+	public String gotBbsDetail(String post_number, Model model) {
+		System.out.println("gotBbsDetail()");
+		BbsDto bbs = bbsService.getBbs(post_number);
+		List<CommentDto> list = commentService.getCmtList(post_number);
+		model.addAttribute("bbs", bbs);
+		model.addAttribute("cmtlist", list);
+		return "mainBbsDetail.tiles";
+		
 	}
 
 }

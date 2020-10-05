@@ -42,7 +42,7 @@ public class KakaoController {
 	private static Logger logger = LoggerFactory.getLogger(MemberController.class);
 
 	private final static String K_CLIENT_ID = "e99b0f9897b065cf7fbc95f66d44a16b";
-	private final static String K_REDIRECT_URI = "http://localhost:8090/spring/login.do";
+	private final static String K_REDIRECT_URI = "http://localhost:8090/spring/kakaologin.do";
 
 	public static String getAuthorizationUrl(HttpSession session) {
 

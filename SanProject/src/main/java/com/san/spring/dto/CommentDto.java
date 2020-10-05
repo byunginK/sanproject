@@ -2,18 +2,26 @@ package com.san.spring.dto;
 
 import java.io.Serializable;
 
-public abstract class CommentDto implements Serializable {
+public class CommentDto implements Serializable {
 	private int post_number;
 	private String email;
 	private int main_post_number;
-	private String contetn;
+	private String content;
 	private int step;
 	private int ref;
 	private int del;
 	private String wdate;
+	private String nickname;
 
 	public CommentDto() {
 
+	}
+
+	public CommentDto(String email, int main_post_number, String content) {
+		super();
+		this.email = email;
+		this.main_post_number = main_post_number;
+		this.content = content;
 	}
 
 	public int getPost_number() {
@@ -38,14 +46,6 @@ public abstract class CommentDto implements Serializable {
 
 	public void setMain_post_number(int main_post_number) {
 		this.main_post_number = main_post_number;
-	}
-
-	public String getContetn() {
-		return contetn;
-	}
-
-	public void setContetn(String contetn) {
-		this.contetn = contetn;
 	}
 
 	public int getStep() {
@@ -80,11 +80,29 @@ public abstract class CommentDto implements Serializable {
 		this.wdate = wdate;
 	}
 
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
 	@Override
 	public String toString() {
 		return "CommentDto [post_number=" + post_number + ", email=" + email + ", main_post_number=" + main_post_number
-				+ ", contetn=" + contetn + ", step=" + step + ", ref=" + ref + ", del=" + del + ", wdate=" + wdate
-				+ "]";
+				+ ", content=" + content + ", step=" + step + ", ref=" + ref + ", del=" + del + ", wdate=" + wdate
+				+ ", nickname=" + nickname + "]";
 	}
+
+	
 
 }
