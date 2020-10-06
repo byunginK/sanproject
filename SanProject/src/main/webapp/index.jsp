@@ -8,8 +8,7 @@
 </head>
 <body>
 <%
-response.sendRedirect("login_before.do");
-
+response.sendRedirect("login.do");
 %>
 
 </body>
