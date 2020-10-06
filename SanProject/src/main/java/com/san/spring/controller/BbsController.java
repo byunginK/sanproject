@@ -40,6 +40,13 @@ public class BbsController {
 		int start = nowPage*2+1;
 		int end = start + 1;
 		
+<<<<<<< HEAD
+		int nowPage = bbsDto.getPageNumber();
+		int start = nowPage*2+1;
+		int end = start + 1;
+
+=======
+>>>>>>> origin
 		bbsDto.setStart(start);
 		bbsDto.setEnd(end);
 		List<BbsDto> bbslist = bbsService.allBbsList(bbsDto);
