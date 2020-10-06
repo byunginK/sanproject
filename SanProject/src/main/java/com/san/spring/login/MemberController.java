@@ -256,5 +256,11 @@ public class MemberController {
 		}
 
 	}
+	
+	//추후 자동 로그아웃시 이동되는 컨트럴 
+	@RequestMapping(value = "sessionOut.do", method = RequestMethod.GET)
+	public String sessionOut() {
+		return "sessionOut.tiles";
+	}
 
 }

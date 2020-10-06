@@ -39,11 +39,15 @@ public class BbsController {
 		int nowPage = bbsDto.getPageNumber();
 		int start = nowPage*2+1;
 		int end = start + 1;
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> origin
 		bbsDto.setStart(start);
 		bbsDto.setEnd(end);
 		List<BbsDto> bbslist = bbsService.allBbsList(bbsDto);
-		System.out.println(bbslist);
+		//System.out.println(bbslist);
 		model.addAttribute("bbslist", bbslist);
 		return "mainBbs.tiles";
 	}
