@@ -1,48 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<div class="content_wrap">
-	<div class="ui segments">
+	<div style="border: 1px solid;height: 652px;width: 1020px">
 		<form id="bbsForm">
 			<input type="hidden" id="email" name="email" value="${login.email}">
 			<input type="hidden" id="main_post_number" name="main_post_number" value="${bbs.post_number }">
-			<div style="width: 100%; height: 100%">
-				<div style="float: left; width: 70%; height: 100%; margin-right: 10px;">
-					<div>
+			
+				<div class='mainbbsdetailimg'>
 						<ul class="bxslider">
 							<c:forEach items="${bbs.imgs}" var="img">
 								<li><a href="#"><img src="image/${img}" alt="이미지 없음" width="100%" height="100%"></a></li>
 							</c:forEach>
 						</ul>
-					</div>
 				</div>
-				<div style="margin-top: 10;">
+				<div style="width: 400px; height:650px; margin-top: 10; float: right;">
 					<div style="float: right;">
 						<i class="ellipsis vertical icon"></i>
 					</div>
 					<div>
 						<i class="user icon"></i>
-						<span><b>${bbs.nickname}</b><br>${bbs.location}</span><br><br>
-						<p>${bbs.content }</p>
+						<span class='nicknameptag'>${bbs.nickname}</span>
 					</div>
-				</div>
-				<div class="ui section divider"></div>
-				<div id="ajaxComment" style="height: 55%; overflow: auto">
+					<div style="margin-top: 5px">	
+						<span>${bbs.location}</span>
+					</div>
+					<div style="width: 400px;margin-top: 5px;padding-left: 10px;padding-right: 10px;">${bbs.content }</div>
+					
+				
+				<div id="ajaxComment" style="height: 72%; overflow: auto; margin-top: 15px; border-top:1px solid; border-bottom:1px solid; margin-bottom: 10px; padding-top: 10px ">
 
 					<c:forEach items="${cmtlist}" var="cmt">
 						<div id='cmtcontent${cmt.post_number}'>
 							<c:if test="${cmt.step == 0}">
 								<i class="user icon"></i>
 								<span>${cmt.nickname}</span>
-								<input readonly="readonly" style="border: none; outline-style: none" size="25%" value="${cmt.content}">
+								<input readonly="readonly" style="border: none; outline-style: none;" size="41%" value="${cmt.content}">
 								<i class="plus icon" onclick='answerReply("${cmt.post_number}")'></i>
 							</c:if>
 
 						</div>
 
 						<c:if test="${cmt.step > 0}">
-							<div id='reply${cmt.post_number}'>
-								&nbsp;&nbsp;&nbsp;&nbsp;<i class="user icon"></i>
+							<div id='reply${cmt.post_number}' style="margin-left: 15px">
+								<i class="user icon"></i>
 								<span>${cmt.nickname}</span> <span>${cmt.content}</span>
 							</div>
 						</c:if>
@@ -53,25 +53,24 @@
 						</div><br>
 					</c:forEach>
 				</div>
-				<div class="ui section divider"></div>
 				<div class="ui label">
 					<i class="heart icon" onclick='getBbsLike("${bbs.post_number}","${login.email}")'></i> 
 					<span id="like_count${bbs.post_number}">${bbs.likecount}</span>
 				</div>
-				<div class="ui section divider"></div>
-				<div>
-					<input type="text" name="content" placeholder="댓글 달기" style="border: none; outline-style: none; font-size: 15;" size="32%"> 
+				<div style=" margin-top: 10px; padding-top: 10px; border-top: 1px solid;">
+					<input type="text" name="content" placeholder="댓글 달기" style="border: none; outline-style: none; font-size: 15;" size="43%"> 
 					<i class="big comment alternate outline icon" id="comment_button"></i>
 				</div>
-			</div>
+				</div>
+			
 		</form>
-	</div>
-	<br> <br>
-</div>
 
+</div>
 <script>
 	$(document).ready(function() {
-		$('.bxslider').bxSlider();
+		$('.bxslider').bxSlider({
+			pager:false
+			});
 
 	});
 

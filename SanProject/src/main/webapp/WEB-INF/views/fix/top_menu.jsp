@@ -8,10 +8,11 @@
 	</div>
 </div>
 <div id="allSearch_wrap">
-	<div id="allSearch" class="ui input">
-		<input type="text" id="mainSearch" size="30px" placeholder="검색">
-	</div>
-	<a href="#none"><i class="large search icon"></i></a>
+ <div class="ui left icon action input" id="allSearch">
+    <i class="search icon"></i>
+    <input type="text" placeholder="Search">
+    <div class="ui blue submit button">Search</div>
+  </div>
 </div>
 <div id="menulist_wrap">
 	<div id="menulist">

@@ -7,7 +7,7 @@
     <div class="maintb">
             <div class="ui segments">
               <div class="ui segment ">
-               <p><b>${bbs.nickname}</b></p>
+               <p class='nicknameptag'>${bbs.nickname}</p>
 
                <div style="float: left">
                   <p>${bbs.location}</p>
@@ -18,7 +18,7 @@
 
             </div>
             
-               <div style="margin-top: 30px">
+               <div class='imgst'>
                   <ul class="bxslider">
                      <c:forEach items="${bbs.imgs}" var="img">
                         <li><a href="#"><img src="image/${img}" alt="이미지 없음" width='100%' height='100%'></a></li>
@@ -31,10 +31,10 @@
                <span id="like_count${bbs.post_number}">${bbs.likecount}</span>
             </div>
             
-            <p><a href="goBbsDetail.do?post_number=${bbs.post_number}">${bbs.content}</a></p>
+           <div class='contst'><a href="goBbsDetail.do?post_number=${bbs.post_number}">${bbs.content}</a></div>
             
             <div class="ui segment" >
-               <input type="text" name="content" id="content${bbs.post_number}" placeholder="댓글 달기" style="border: none; outline-style: none; font-size:18;" size="70%">
+               <input type="text" name="content" id="content${bbs.post_number}" placeholder="댓글 달기" style="border: none; outline-style: none; font-size:16;" size="74%">
                <i class="big comment alternate outline icon" onclick='comment_button("${bbs.post_number}","${login.email}")'></i>
             </div>
    
@@ -88,9 +88,9 @@
             //let arr = imgs.split(',');
             //alert(arr); 
             addlist +="<div class='maintb'><div class='ui segments'>"
-                  +"<div class='ui segment'><p><b>"+bbs.nickname+"</b></p><div style='float: left'><p>"+bbs.location+"</p> </div>"            
+                  +"<div class='ui segment'><p class='nicknameptag'><b>"+bbs.nickname+"</b></p><div style='float: left'><p>"+bbs.location+"</p> </div>"            
                       +"<div style='float: right'><i class='ellipsis vertical icon'></i></div></div>"
-                  +"<div style='margin-top: 30px'><ul class='bxslider'>";
+                  +"<div class='imgst'><ul class='bxslider'>";
                   
             for(var j = 0; j < bbs.imgs.length; j++){
             addlist+="<li><a href='#'><img src=\"image/"+bbs.imgs[j]+"\" alt='이미지 없음' width='100%' height='100%'></a></li>";
@@ -99,8 +99,8 @@
             addlist   +="</ul></div>"
                   +"<div class='ui label'><i class='heart icon' onclick=\"getBbsLike('"+bbs.post_number+"','"+bbs.email+"')\"></i>"
                   +"<span id=\"like_count"+bbs.post_number+"\">"+bbs.likecount+"</span></div>"
-                  +"<p><a href=goBbsDetail.do?post_number="+bbs.post_number+">"+bbs.content+"</a></p>"
-                  +"<div class='ui segment'><input type='text' name='content' id='content"+bbs.post_number+"' placeholder='댓글 달기' style='border: none; outline-style: none; font-size:18;' size='70%'>"
+                  +"<div class='contst'><a href=goBbsDetail.do?post_number="+bbs.post_number+">"+bbs.content+"</a></div>"
+                  +"<div class='ui segment'><input type='text' name='content' id='content"+bbs.post_number+"' placeholder='댓글 달기' style='border: none; outline-style: none; font-size:16;' size='74%'>"
                   +"<i class='big comment alternate outline icon' onclick='comment_button("+'"'+bbs.post_number+'"'+","+'"'+login_email+'"'+")'></i></div>"
                   +"</div><div class='ui hidden divider'></div></div>";
             });
