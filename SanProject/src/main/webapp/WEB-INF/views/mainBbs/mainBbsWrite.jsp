@@ -14,25 +14,28 @@
 </head>
 <body>
 
-	<div>
+	<div class="ui segments">
 		<form id="frm" name="fileForm" action="addmainBbswrite.do" method="post" enctype="multipart/form-data">
 			<div>
-				작성자: ${login.nickname} 
 					 <input type="hidden" name="email" value="${login.email}">
 			</div>
-			<div>
-				위치: <input type="text" name="location">
+			
+			<div class="ui segment">
+				위치 추가 : <input type="text" name="location" style="border: none; outline-style: none; font-size:18;">
 			</div>
-			<div>
-				제목: <input type="text" name="title">
+			
+			<div class="ui segment">
+				제목: <input type="text" name="title" style="border: none; outline-style: none; font-size:18;">
 			</div>
-			<div>
+			
+			<div class="ui segment">
 				<input multiple="multiple" type="file" id="name" name="file" />
 				<input type="hidden" name="src" /> 
 			</div>
-			<div>
+			
+			<div class="ui segment">
 				<h4>내용:</h4>
-				<textarea rows="13" cols="80" name="content"></textarea>
+				<textarea rows="13" cols="80" name="content" style="border: none; outline-style: none; font-size:18;"></textarea>
 			</div>
 			
 			
