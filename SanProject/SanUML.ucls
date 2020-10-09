@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <interface id="1" language="java" name="com.san.spring.dao.QnADao" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/dao/QnADao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="70" width="120" x="3489" y="278"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="2" language="java" name="com.san.spring.service.BbsService" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/service/BbsService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="70" width="138" x="3888" y="278"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="3" language="java" name="com.san.spring.login.MemberService" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/login/MemberService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="70" width="137" x="2158" y="278"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="4" language="java" name="com.san.spring.serviceimpl.SanServiceimpl" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/serviceimpl/SanServiceimpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="162" x="942" y="150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="5" language="java" name="com.san.spring.service.QnAService" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/service/QnAService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="70" width="138" x="4090" y="278"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="6" language="java" name="com.san.spring.dao.CommentDao" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/dao/CommentDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="70" width="120" x="2548" y="278"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="7" language="java" name="com.san.spring.login.MemberDao" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/login/MemberDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="70" width="126" x="2736" y="278"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="8" language="java" name="com.san.spring.login.MemberServiceimpl" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/login/MemberServiceimpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="166" x="2158" y="150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="com.san.spring.controller.QnAController" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/controller/QnAController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="150" x="246" y="150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="com.san.spring.daoimpl.BbsDaoimpl" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/daoimpl/BbsDaoimpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="144" x="2364" y="150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="com.san.spring.login.MemberController" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/login/MemberController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="154" x="436" y="150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="12" language="java" name="com.san.spring.service.CommentService" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/service/CommentService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="70" width="146" x="3673" y="278"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="13" language="java" name="com.san.spring.dto.QnADto" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/dto/QnADto.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="116" x="630" y="150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="com.san.spring.daoimpl.CommentDaoimpl" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/daoimpl/CommentDaoimpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="148" x="2548" y="150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="com.san.spring.dto.BbsLikeDto" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/dto/BbsLikeDto.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="116" x="786" y="150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="com.san.spring.login.MemberDaoimpl" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/login/MemberDaoimpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="139" x="2736" y="150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="17" language="java" name="com.san.spring.dao.SanDao" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/dao/SanDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="70" width="120" x="3305" y="278"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="18" language="java" name="com.san.spring.serviceimpl.BbsLikeServiceimpl" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/serviceimpl/BbsLikeServiceimpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="88" width="166" x="2915" y="150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="19" language="java" name="com.san.spring.dao.BbsDao" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/dao/BbsDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="70" width="120" x="2364" y="278"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="20" language="java" name="com.san.spring.daoimpl.BbsLikeDaoimpl" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/daoimpl/BbsLikeDaoimpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="144" x="3121" y="150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="com.san.spring.dto.SanDto" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/dto/SanDto.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="116" x="1144" y="150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="22" language="java" name="com.san.spring.service.BbsLikeService" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/service/BbsLikeService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="70" width="138" x="2915" y="278"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="23" language="java" name="com.san.spring.dto.CommentDto" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/dto/CommentDto.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="116" x="1456" y="150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="com.san.spring.daoimpl.SanDaoimpl" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/daoimpl/SanDaoimpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="144" x="3305" y="150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="com.san.spring.daoimpl.QnADaoimpl" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/daoimpl/QnADaoimpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="144" x="3489" y="150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="com.san.spring.controller.SanController" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/controller/SanController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="150" x="1612" y="150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="27" language="java" name="com.san.spring.dao.BbsLikeDao" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/dao/BbsLikeDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="70" width="120" x="3121" y="278"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="28" language="java" name="com.san.spring.login.MemberDto" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/login/MemberDto.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="126" x="1802" y="150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="com.san.spring.controller.BbsController" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/controller/BbsController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="150" x="1968" y="150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="com.san.spring.serviceimpl.CommentServiceimpl" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/serviceimpl/CommentServiceimpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="88" width="175" x="3673" y="150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="com.san.spring.serviceimpl.BbsServiceimpl" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/serviceimpl/BbsServiceimpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="162" x="3888" y="150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="32" language="java" name="com.san.spring.service.SanService" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/service/SanService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="70" width="138" x="942" y="278"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="33" language="java" name="com.san.spring.serviceimpl.QnAServiceimpl" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/serviceimpl/QnAServiceimpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="162" x="4090" y="150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="com.san.spring.aop.LogAop" project="SanProject" 
+    file="/SanProject/src/main/java/com/san/spring/aop/LogAop.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="120" x="271" y="378"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <realization id="35">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="27"/>  
+  </realization>  
+  <realization id="36">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="12"/>  
+  </realization>  
+  <realization id="37">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="7"/>  
+  </realization>  
+  <realization id="38">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="22"/>  
+  </realization>  
+  <realization id="39">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <realization id="40">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="32"/>  
+  </realization>  
+  <realization id="41">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="19"/>  
+  </realization>  
+  <realization id="42">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <realization id="43">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="5"/>  
+  </realization>  
+  <realization id="44">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <realization id="45">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <realization id="46">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="17"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
