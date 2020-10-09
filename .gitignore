@@ -39,11 +39,11 @@ Servers
 .buildpath
 
 # sbteclipse plugin
-/sanproject/SanProject/.target
-/sanproject/SanProject/.classpath
-/sanproject/SanProject/.project
-/sanproject/SanProject/.springBeans
-/sanproject/SanProject/SanUML.ucls
+/SanProject/target
+/SanProject/.classpath
+/SanProject/.project
+/SanProject/.springBeans
+/SanProject/SanUML.ucls
 
 # Tern plugin
 .tern-project
