@@ -7,13 +7,20 @@
 <tiles-definitions>
 
 	<definition name="login.tiles" template="/WEB-INF/views/layouts-tiles-login.jsp">
-		<put-attribute name="content" value="/WEB-INF/views/login/content.jsp"/>
 		<put-attribute name="login" value="/WEB-INF/views/login/login.jsp"/>
 	</definition>
 	
 	<definition name="kakao.tiles" template="/WEB-INF/views/layouts-tiles-kakao.jsp">
 		<put-attribute name="kakao" value="/WEB-INF/views/login/kakao.jsp"/>
 	</definition>
+	
+	<!-- <definition name="myPage.tiles" template="/WEB-INF/views/layouts-tiles-myPage.jsp">
+			<put-attribute name="header" value="/WEB-INF/views/fix/header.jsp"/>
+		<put-attribute name="top_menu" value="/WEB-INF/views/fix/top_menu.jsp"/>
+		<put-attribute name="main" value="/WEB-INF/views/myPage/maintest.jsp"/>
+		<put-attribute name="left_bar" value="/WEB-INF/views/fix/left-test.jsp"/>
+		<put-attribute name="mtPage" value="/WEB-INF/views/login/myPage.jsp"/>
+	</definition>  -->
 	
 	<definition name="regi.tiles" template="/WEB-INF/views/layouts-tiles-signup.jsp">
 		<put-attribute name="signup" value="/WEB-INF/views/login/regi.jsp"/>
