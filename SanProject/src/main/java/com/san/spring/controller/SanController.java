@@ -56,7 +56,6 @@ public class SanController {
 		
 		JSONObject xmlJSONObj = XML.toJSONObject(buffer.toString());
 		String jsonPrettyProntString = xmlJSONObj.toString();
-		System.out.println(jsonPrettyProntString);
 	
 		return jsonPrettyProntString;
 		
