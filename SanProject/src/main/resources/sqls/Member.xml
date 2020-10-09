@@ -10,15 +10,15 @@
 		VALUES(#{email},#{password},#{nickname},#{name},3,0,#{marketing},0,0)
 	</insert>
 
-	<update id="updateName" parameterType="member">
+	<update id="updateName" parameterType="com.san.spring.login.MemberDto">
 		UPDATE PASSWORD SET
 		password = #{password} where email = #{email}
 	</update>
-	<update id="updateNickname" parameterType="member">
+	<update id="updateNickname" parameterType="com.san.spring.login.MemberDto">
 		UPDATE MEMBER SET
 		email = #{nickname} where email = #{email}
 	</update>
-	<update id="updatePassword" parameterType="member">
+	<update id="updatePassword" parameterType="com.san.spring.login.MemberDto">
 		UPDATE PASSWORD SET
 		password = #{password} where email = #{email}
 	</update>
