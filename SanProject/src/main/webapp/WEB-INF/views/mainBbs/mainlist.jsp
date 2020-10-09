@@ -34,7 +34,7 @@
            <div class='contst'><a href="goBbsDetail.do?post_number=${bbs.post_number}">${bbs.content}</a></div>
             
             <div class="ui segment" >
-               <input type="text" name="content" id="content${bbs.post_number}" placeholder="댓글 달기" style="border: none; outline-style: none; font-size:16;" size="74%">
+               <input type="text" name="content" id="content${bbs.post_number}" placeholder="댓글 달기" style="border: none; outline-style: none; font-size:16;" size="73">
                <i class="big comment alternate outline icon" onclick='comment_button("${bbs.post_number}","${login.email}")'></i>
             </div>
    
@@ -100,7 +100,7 @@
                   +"<div class='ui label'><i class='heart icon' onclick=\"getBbsLike('"+bbs.post_number+"','"+bbs.email+"')\"></i>"
                   +"<span id=\"like_count"+bbs.post_number+"\">"+bbs.likecount+"</span></div>"
                   +"<div class='contst'><a href=goBbsDetail.do?post_number="+bbs.post_number+">"+bbs.content+"</a></div>"
-                  +"<div class='ui segment'><input type='text' name='content' id='content"+bbs.post_number+"' placeholder='댓글 달기' style='border: none; outline-style: none; font-size:16;' size='74%'>"
+                  +"<div class='ui segment'><input type='text' name='content' id='content"+bbs.post_number+"' placeholder='댓글 달기' style='border: none; outline-style: none; font-size:16;' size='73'>"
                   +"<i class='big comment alternate outline icon' onclick='comment_button("+'"'+bbs.post_number+'"'+","+'"'+login_email+'"'+")'></i></div>"
                   +"</div><div class='ui hidden divider'></div></div>";
             });
@@ -140,7 +140,7 @@
          type : 'get',
          data : {"email" : email, "main_post_number" : main_post_number, "content" : content},
          success : function(data) {
-            alert("댓글이 추가돼었습니다.");
+            alert("댓글이 추가 하였습니다.");
              $("#content" + main_post_number).val("");
          },
          error : function() {
