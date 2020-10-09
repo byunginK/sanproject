@@ -2,6 +2,7 @@ package com.san.spring.login;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -48,6 +49,12 @@ public class MemberController {
 	MemberService memberService;
 	NaverController naverController;
 
+	// 마이페이지 이동
+	@RequestMapping(value = "/mypage.do")
+	public String mypage() throws Exception {
+		return "mypage.tiles";
+	}
+
 	@RequestMapping(value = "login.do", method = { RequestMethod.GET, RequestMethod.POST }) // get, post 들어오는 방식
 																							// 중 하나 선택
 	public String login(HttpSession session, Model model) {
@@ -91,11 +98,11 @@ public class MemberController {
 		JSONObject response_obj = (JSONObject) jsonObj.get("response");
 		// response의 nickname값 파싱
 		String nickname = (String) response_obj.get("nickname");
-		System.out.println("nickname: "+nickname);
+		System.out.println("nickname: " + nickname);
 		String name = (String) response_obj.get("name");
-		System.out.println("name: "+name);
+		System.out.println("name: " + name);
 		String email = (String) response_obj.get("email");
-		System.out.println("email: "+email);
+		System.out.println("email: " + email);
 		// 4.파싱 닉네임 세션으로 저장
 		session.setAttribute("sessionId", nickname); // 세션 생성
 		model.addAttribute("result", apiResult);
@@ -120,13 +127,28 @@ public class MemberController {
 	public String getKakaoSignIn(ModelMap model, @RequestParam("code") String code, HttpSession session)
 			throws Exception {
 
-		JsonNode userInfo = KakaoController.getKakaoUserInfo(code);
+		String access_Token = KakaoController.getAccessToken(code);
+		HashMap<String, Object> userInfo = KakaoController.getUserInfo(access_Token);
+		System.out.println("login Controller : " + userInfo);
 
 		logger.info("login " + new Date());
 		logger.info("code : " + code);
 		logger.info("userinfo : " + userInfo);
 
+		if (userInfo.get("email") != null) {
+			session.setAttribute("userId", userInfo.get("email"));
+			session.setAttribute("access_Token", access_Token);
+		}
+
 		return "mainBbs.tiles";
+	}
+
+	@RequestMapping(value = "/klogout.do")
+	public String kakaologout(HttpSession session) {
+		KakaoController.kakaoLogout((String) session.getAttribute("access_Token"));
+		session.removeAttribute("access_Token");
+		session.removeAttribute("userId");
+		return "index";
 	}
 
 	@RequestMapping(value = "regi.do", method = { RequestMethod.GET, RequestMethod.POST })
@@ -256,8 +278,8 @@ public class MemberController {
 		}
 
 	}
-	
-	//추후 자동 로그아웃시 이동되는 컨트럴 
+
+	// 추후 자동 로그아웃시 이동되는 컨트럴
 	@RequestMapping(value = "sessionOut.do", method = RequestMethod.GET)
 	public String sessionOut() {
 		return "sessionOut.tiles";

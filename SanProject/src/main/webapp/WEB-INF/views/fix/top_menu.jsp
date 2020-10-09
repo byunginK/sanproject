@@ -8,16 +8,16 @@
 	</div>
 </div>
 <div id="allSearch_wrap">
- <div class="ui left icon action input" id="allSearch">
-    <i class="search icon"></i>
-    <input type="text" placeholder="Search">
-    <div class="ui blue submit button">Search</div>
-  </div>
+	<div class="ui left icon action input" id="allSearch">
+		<i class="search icon"></i> <input type="text" placeholder="Search">
+		<div class="ui blue submit button">Search</div>
+	</div>
 </div>
 <div id="menulist_wrap">
 	<div id="menulist">
 		<ul class="topListMenu">
-			<li><a href="./mainBbswrite.do"><i class="large edit outline icon"></i></a></li>
+			<li><a href="./mainBbswrite.do"><i
+					class="large edit outline icon"></i></a></li>
 			<li class="menu"><a><i class="large th list icon"></i></a>
 				<ul class="hide">
 					<li><a href="mountainInformation.do">산 정보</a></li>
@@ -29,6 +29,7 @@
 			</li>
 			<li class="menu"><a><i class="large user icon"></i></a>
 				<ul class="hide">
+					<li><a href="logout.do">로그아웃</a></li>
 					<li><a>마이페이지</a></li>
 					<li><a>설정</a></li>
 				</ul></li>
@@ -38,14 +39,14 @@
 <div style="clear: both"></div>
 
 <script>
-$(document).ready(function(){
-	$(".menu a").click(function(){
-		var submenu = $(this).next("ul");
-		  if( submenu.is(":visible") ){
-		  submenu.slideUp();
-		  }else{
-		   submenu.slideDown();
-		   }
+	$(document).ready(function() {
+		$(".menu a").click(function() {
+			var submenu = $(this).next("ul");
+			if (submenu.is(":visible")) {
+				submenu.slideUp();
+			} else {
+				submenu.slideDown();
+			}
+		});
 	});
-});
 </script>
