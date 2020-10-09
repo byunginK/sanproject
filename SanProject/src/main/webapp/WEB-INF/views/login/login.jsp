@@ -63,6 +63,6 @@ ${login.nickname }님 안녕하세요
 			href="https://careers.kakao.com/login">카카오로그인</a> <a
 			href="https://nid.naver.com/nidlogin.login?url=">네이버로그인</a> <a
 			href="https://accounts.google.com/login/signinchoos er?flowName=GlifWebSignIn&flowEntry=ServiceLogin">구글로그인</a>
-		—>
+		
 	</center>
 </c:if>
