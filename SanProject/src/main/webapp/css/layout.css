@@ -33,7 +33,7 @@ body{padding: 0; margin: 0}
 #ajaxComment input{border: none; outline-style: none; font-size: 12px}
 .detailDiv .detailTopInfo{padding-left: 10px}
 ._cmtcontent .plus{float: right;}
-.cmtnick{width: 60;display: inline-block;}
+.cmtnick{display: inline-block;}
 .cmtnick span{font-weight: bold; font-size: 15px}
 .cmtcont{font-size: 12px}
 ._cmtcontent{margin-top: 10px; margin-bottom: 10px}
