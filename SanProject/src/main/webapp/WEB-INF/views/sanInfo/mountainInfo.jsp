@@ -1,98 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Places Search Box</title>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-<script
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8Un5TEXbB8cb1ZVWxDjP84a8xkS5a5RM&callback=initAutocomplete&libraries=places&v=weekly"
-	defer></script>
-<style type="text/css">
-/* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-#map {
-	height: 100%;
-}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8Un5TEXbB8cb1ZVWxDjP84a8xkS5a5RM&callback=initAutocomplete&libraries=places&v=weekly" defer></script>
 
-/* Optional: Makes the sample page fill the window. */
-html, body {
-	height: 100%;
-	margin: 0;
-	padding: 0;
-}
-
-#description {
-	font-family: Roboto;
-	font-size: 15px;
-	font-weight: 300;
-}
-
-#infowindow-content .title {
-	font-weight: bold;
-}
-
-#infowindow-content {
-	display: none;
-}
-
-#map #infowindow-content {
-	display: inline;
-}
-
-.pac-card {
-	margin: 10px 10px 0 0;
-	border-radius: 2px 0 0 2px;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	outline: none;
-	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-	background-color: #fff;
-	font-family: Roboto;
-}
-
-#pac-container {
-	padding-bottom: 12px;
-	margin-right: 12px;
-}
-
-.pac-controls {
-	display: inline-block;
-	padding: 5px 11px;
-}
-
-.pac-controls label {
-	font-family: Roboto;
-	font-size: 13px;
-	font-weight: 300;
-}
-
-#pac-input {
-	background-color: #fff;
-	font-family: Roboto;
-	font-size: 15px;
-	font-weight: 300;
-	margin-left: 12px;
-	padding: 0 11px 0 13px;
-	text-overflow: ellipsis;
-	width: 400px;
-}
-
-#pac-input:focus {
-	border-color: #4d90fe;
-}
-
-#title {
-	color: #fff;
-	background-color: #4d90fe;
-	font-size: 25px;
-	font-weight: 500;
-	padding: 6px 12px;
-}
-
-#target {
-	width: 345px;
-}
-</style>
-<script>
+	<div class="mapdetailborder">
+		<input id="pac-input" class="controls" type="text"
+			placeholder="Search Box" name="address" />
+	
+		<div id="map"></div>
+		<div class='mapdetailDiv'>
+			
+		</div>
+		</div>
+	<script>
       "use strict";
 
       // This example adds a search box to a map, using the Google Place Autocomplete
@@ -167,47 +87,43 @@ html, body {
           map.fitBounds(bounds);
         });
       }
-
-
-      
-    </script>
-</head>
-<body>
-	<input id="pac-input" class="controls" type="text"
-		placeholder="Search Box" name="address" />
-
-	<div id="map"></div>
-	<table>
-		<td id="jsontest"></td>
-	</table>
-	<script>
+    
+	
 	$("#pac-input").keydown(function(key){
         if(key.keyCode==13){
-         
              let adress_text = $("#pac-input").val();
-
              $.ajax({
                 url : "./mountainInformationCom.do",
                 type : "POST",
                 data : {"adress_text": adress_text},
                 dataType :"text",
                 success : function(retVal){
-                   $("#jsontest").html(retVal);
                    let jsonn = JSON.parse(retVal);
-                   console.log(jsonn.response.body.items.item.mntnattchimageseq);
-                   console.log(jsonn.response.body.items.item.crcmrsghtngetcimageseq);
-                   console.log(jsonn.response.body.items.item.crcmrsghtnginfodscrt);
-                   console.log(jsonn.response.body.items.item.crcmrsghtnginfoetcdscrt);
-                   console.log(jsonn.response.body.items.item.pbtrninfodscrt);
-                   console.log(jsonn.response.body.items.item.mntninfodtlinfocont);
+                   let addSan="";
+                   let totalCount = jsonn.response.body.totalCount;
+                   
+                   if(totalCount == 1){
+	                   addSan += "<p><img src="+jsonn.response.body.items.item.mntnattchimageseq+" width=390px></p>"
+	                          +  "<p>"+jsonn.response.body.items.item.crcmrsghtnginfodscrt+"</p>"
+	                          +  "<p>"+jsonn.response.body.items.item.crcmrsghtnginfoetcdscrt+"</p>"
+	                          +  "<p>"+jsonn.response.body.items.item.pbtrninfodscrt+"</p>"
+	                          +  "<p>"+jsonn.response.body.items.item.mntninfodtlinfocont+"</p>";
+                   }else {
+                       for (let i = 0; i < totalCount; i++){
+                    	   addSan += "<p><img src="+jsonn.response.body.items.item[i].mntnattchimageseq+" width=390px></p>"
+	                          +  "<p>"+jsonn.response.body.items.item[i].crcmrsghtnginfodscrt+"</p>"
+	                          +  "<p>"+jsonn.response.body.items.item[i].crcmrsghtnginfoetcdscrt+"</p>"
+	                          +  "<p>"+jsonn.response.body.items.item[i].pbtrninfodscrt+"</p>"
+	                          +  "<p>"+jsonn.response.body.items.item[i].mntninfodtlinfocont+"</p>";
+                           }
+                   }
+                   $(".mapdetailDiv").html(addSan);
                 },
                 error : function(retVal){
                    alert("error");
                 }
                    
-              })};
-          });
+           })};
+     });
 	</script>
 
-</body>
-</html>
