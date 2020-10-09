@@ -45,6 +45,7 @@ Servers
 /SanProject/.springBeans
 /SanProject/SanUML.ucls
 /SanProject/src/main/webapp/META-INF/maven/com.san/spring/pom.properties
+/SanProject/src/main/webapp/META-INF/MANIFEST.MF
 
 # Tern plugin
 .tern-project
