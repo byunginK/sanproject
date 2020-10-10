@@ -1,7 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<div style="width: 100%; height: 800px; margin-top: 70px">
-    검색 결과>>>> 이쪽으로 출력
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<div style="width: 100%; height: 800px;">
+ <c:forEach items="${search }" var="ser">
+ 	<div style="width: 300px; height: 400px; display: inline-block; margin: 22px">
+ 		<div>
+ 			<span>${ser.nickname }</span>
+ 		</div>
+ 		<div>
+ 			<span><a href='goBbsDetail.do?post_number=${ser.post_number }'>${ser.location }</a></span>
+ 		</div>
+ 		<div>
+	        <ul class="bxslider">
+	           <c:forEach items="${ser.imgs}" var="img">
+	             <li><img src="image/${img}" alt="이미지 없음" width='100%' height='100%'></li>
+	           </c:forEach>
+	        </ul>
+ 		</div>
+ 	</div>
+ 
+ </c:forEach>
 </div>
+
+<script>
+$(document).ready(function() {
+    $('.bxslider').bxSlider();
+   
+ });
+</script>
