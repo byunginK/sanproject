@@ -9,8 +9,8 @@
 </div>
 <div id="allSearch_wrap">
 	<div class="ui left icon action input" id="allSearch">
-		<i class="search icon"></i> <input type="text" placeholder="Search">
-		<div class="ui blue submit button">Search</div>
+		<i class="search icon"></i><input type="text" placeholder="Search" id="searchInput">
+		<div class="ui blue submit button" id="searchBtn">Search</div>
 	</div>
 </div>
 <div id="menulist_wrap">
@@ -47,6 +47,16 @@
 			} else {
 				submenu.slideDown();
 			}
+		});
+
+		$("#searchBtn").click(function(){
+			let searchWord = $("#searchInput").val();
+			if(searchWord == ""){
+				alert("검색어를 입력해 주세요");
+			}else{
+				location.href="goMainSearch.do?searchWord="+searchWord+"";
+			}
+			
 		});
 	});
 </script>

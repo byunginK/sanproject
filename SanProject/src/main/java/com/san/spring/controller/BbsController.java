@@ -143,5 +143,7 @@ public class BbsController {
 		return "mainBbsDetail.tiles";
 		
 	}
+	
+	
 
 }
