@@ -4,10 +4,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
-
 <c:if test="${not empty login }">
 	<!-- login이 되었을때 -->
 ${login.nickname }님 안녕하세요 	
+
 
 <div align="right" style="height: 20px;">
 		<a href="logout.do">로그아웃</a>
@@ -23,6 +23,8 @@ ${login.nickname }님 안녕하세요
 	</table>
 
 </c:if>
+
+
 
 <c:if test="${empty login }">
 	<!-- login이 되지 않았을때 -->
@@ -41,7 +43,7 @@ ${login.nickname }님 안녕하세요
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="로그인"></td>
+				<td colspan="2" align="center"><input type="submit" value="로그인"> <button type="button" onclick="location.href='regi.do' ">회원가입</button> </td>
 			</tr>
 
 		</table>
@@ -59,10 +61,6 @@ ${login.nickname }님 안녕하세요
 			<a href="${naver_url}"> <img src="image/nal.PNG" width="300" /></a>
 		</div>
 
-		<br> <a href="regi.do">회원가입</a> <a
-			href="https://careers.kakao.com/login">카카오로그인</a> <a
-			href="https://nid.naver.com/nidlogin.login?url=">네이버로그인</a> <a
-			href="https://accounts.google.com/login/signinchoos er?flowName=GlifWebSignIn&flowEntry=ServiceLogin">구글로그인</a>
-		
+
 	</center>
 </c:if>
