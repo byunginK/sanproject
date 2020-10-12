@@ -2,7 +2,7 @@
 body{padding: 0; margin: 0}
 #body_wrap { width:100%; margin-left:auto; margin-right:auto; padding:0px; }	
 #main_wrap{height:80px; margin-left: auto; margin-right: auto; background: #EBFFEB}
-#middle_wrap { width:1050px; height:100%; padding:0px; margin-left:auto; margin-right:auto; margin-top: 50px}
+#middle_wrap { width:1050px; height:100%; padding:0px; margin-left:auto; margin-right:auto; margin-top: 50px;}
 #content_wrap { width:60%;  float: left; margin: 0px;}
 #chat_wrap{width:35%; height:600px; border: 1px solid; float: left; margin: 0px; padding: auto}
 #openchat{width: 100%; height: 48%; border: 1px solid; margin-left: auto; margin-right: auto; margin-bottom: 4%}
@@ -33,9 +33,9 @@ body{padding: 0; margin: 0}
 #ajaxComment input{border: none; outline-style: none; font-size: 12px}
 .detailDiv .detailTopInfo{padding-left: 10px}
 ._cmtcontent .plus{float: right;}
-.cmtnick{display: inline-block;}
+.cmtnick{display: inline-block; float: left;}
 .cmtnick span{font-weight: bold; font-size: 15px}
-.cmtcont{font-size: 12px}
+.cmtcont{font-size: 12px;display: inline-block;width: 200px;margin-left: 5px}
 ._cmtcontent{margin-top: 10px; margin-bottom: 10px}
 .replydiv{margin-left: 15px; margin-top: 10px}
 .mapdetailborder{border: 1px solid #c8c8c8;height: 652px;width: 1020px; border-radius: 10px}

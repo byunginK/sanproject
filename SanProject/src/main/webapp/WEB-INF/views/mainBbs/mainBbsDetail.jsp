@@ -37,7 +37,7 @@
 							<div id='cmtcontent${cmt.post_number}'class='_cmtcontent'>
 								<div class='cmtnick'><i class="user icon"></i>
 								<span>${cmt.nickname}</span></div>
-								<input readonly="readonly" size="41%" value="${cmt.content}">
+								<div class='cmtcont'><span>${cmt.content}</span></div>
 								<i class="plus icon" onclick='answerReply("${cmt.post_number}")'></i>
 							</div>	
 						</c:if>
@@ -120,7 +120,7 @@
 																addcmt += "<div id='cmtcontent"+cmt.post_number+"' class='_cmtcontent'>"
 																       +  "<div class='cmtnick'><i class='user icon'></i>"
 																	   +  "<span>"+cmt.nickname+"</span></div>"
-																	   +  "<input readonly='readonly' size='41%' value='"+cmt.content+"'>"
+																	   +  "<div class='cmtcont'><span>"+cmt.content+"</span></div>"
 																       +  "<i class='plus icon' onclick='answerReply(" +'"'+ cmt.post_number+'"'+")'></i></div>"
 																	   +  "<div id='ans"+cmt.post_number+"' class='_ans' style='display: none'>"
 																	   +  "<input type=text id='answer"+cmt.post_number+"' name='answer"+cmt.post_number+"' placeholder=답글 달기  size=25%>"
@@ -182,7 +182,7 @@
 																		addcmt += "<div id='cmtcontent"+cmt.post_number+"' class='_cmtcontent'>"
 																	       +  "<div class='cmtnick'><i class='user icon'></i>"
 																		   +  "<span>"+cmt.nickname+"</span></div>"
-																		   +  "<input readonly='readonly' size='41%' value='"+cmt.content+"'>"
+																		   +  "<div class='cmtcont'><span>"+cmt.content+"</span></div>"
 																	       +  "<i class='plus icon' onclick='answerReply(" +'"'+ cmt.post_number+'"'+")'></i></div>"
 																		   +  "<div id='ans"+cmt.post_number+"' class='_ans' style='display: none'>"
 																		   +  "<input type=text id=answer"+cmt.post_number+" name='answer"+cmt.post_number+"' placeholder=답글 달기  size=25%>"

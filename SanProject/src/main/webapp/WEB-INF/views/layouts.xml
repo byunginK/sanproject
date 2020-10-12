@@ -59,5 +59,6 @@
 		<put-attribute name="left_bar" value="/WEB-INF/views/fix/left-test.jsp"/>
 	</definition>
 	
+
 	
 </tiles-definitions>
