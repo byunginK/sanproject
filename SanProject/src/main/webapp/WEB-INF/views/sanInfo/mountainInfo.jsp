@@ -104,14 +104,14 @@
                    
                    if(totalCount == 1){
 	                   addSan += "<p><img src="+jsonn.response.body.items.item.mntnattchimageseq+" width=390px></p>"
-	                          +  "<p>"+jsonn.response.body.items.item.crcmrsghtnginfodscrt+"</p>"
+	                        //  +  "<p>"+jsonn.response.body.items.item.crcmrsghtnginfodscrt+"</p>"
 	                          +  "<p>"+jsonn.response.body.items.item.crcmrsghtnginfoetcdscrt+"</p>"
 	                          +  "<p>"+jsonn.response.body.items.item.pbtrninfodscrt+"</p>"
 	                          +  "<p>"+jsonn.response.body.items.item.mntninfodtlinfocont+"</p>";
                    }else {
                        for (let i = 0; i < totalCount; i++){
                     	   addSan += "<p><img src="+jsonn.response.body.items.item[i].mntnattchimageseq+" width=390px></p>"
-	                          +  "<p>"+jsonn.response.body.items.item[i].crcmrsghtnginfodscrt+"</p>"
+	                        //  +  "<p>"+jsonn.response.body.items.item[i].crcmrsghtnginfodscrt+"</p>"
 	                          +  "<p>"+jsonn.response.body.items.item[i].crcmrsghtnginfoetcdscrt+"</p>"
 	                          +  "<p>"+jsonn.response.body.items.item[i].pbtrninfodscrt+"</p>"
 	                          +  "<p>"+jsonn.response.body.items.item[i].mntninfodtlinfocont+"</p>";

@@ -11,11 +11,15 @@
  			<span><a href='goBbsDetail.do?post_number=${ser.post_number }'>${ser.location }</a></span>
  		</div>
  		<div>
-	        <ul class="bxslider">
-	           <c:forEach items="${ser.imgs}" var="img">
-	             <li><img src="image/${img}" alt="이미지 없음" width='100%' height='100%'></li>
-	           </c:forEach>
-	        </ul>
+ 			<a href='goBbsDetail.do?post_number=${ser.post_number }'>
+	 		<div>
+		        <ul class="bxslider">
+		           <c:forEach items="${ser.imgs}" var="img">
+		           		<li><img src="image/${img}" alt="이미지 없음" width='100%' height='100%'></li>
+		           </c:forEach>
+		        </ul>
+		    </div>
+		    </a>
  		</div>
  	</div>
  
