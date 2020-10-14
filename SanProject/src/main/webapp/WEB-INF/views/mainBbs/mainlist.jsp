@@ -3,7 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id="content_wrap">
  <input type="hidden" id="email" name="email" value="${login.email}">
+
     <c:forEach items="${bbslist }" var="bbs">
+     <c:if test="${bbs.del == 0 }">
     <div class="maintb">
             <div class="ui segments">
               <div class="ui segment ">
@@ -12,10 +14,15 @@
                <div style="float: left">
                   <p>${bbs.location}</p>
                </div>
+               <c:if test='${login.email == bbs.email }'>
                <div style="float: right">
-                 <i class="ellipsis vertical icon"></i>
+                 <div class='menu2'><i class='ellipsis vertical icon'></i>
+                 <ul class='hide'>
+					<li><a href="#" onclick='delMain(${bbs.post_number})'>삭제</a></li>
+					<li><a>수정</a></li>
+				</ul></div>
                </div>
-
+				</c:if>
             </div>
             
                <div class='imgst'>
@@ -42,6 +49,7 @@
         
       <div class="ui hidden divider"></div>
       </div>
+      </c:if>
    </c:forEach>
    
 </div>
@@ -62,19 +70,26 @@
    $(document).on('scroll', function(){
       $('.bxslider').bxSlider();
    });
-   
+   $(document).on('click','.menu2',function(){
+	   
+		var submenu = $(".menu2 i").next("ul");
+		if (submenu.is(":visible")) {
+			submenu.slideUp();
+		} else {
+			submenu.slideDown();
+		}
+		
+	});
+
    let np = 0;
    $(window).scroll(function() {
-   console.log(Math.round( $(window).scrollTop()));
+   
     let wh = Math.round($(window).height());
     
     let height = Math.round($("#content_wrap").height());
-    console.log('height:'+height);
-    console.log('wh:'+wh);
-    console.log('body:'+$('body').height());
+    
      if ( wh >= height - $(window).scrollTop()) {
         np+=1;
-         console.log('np:'+np);
         $.ajax({
          url:'addlist.do',
          type:"get",
@@ -88,9 +103,16 @@
             //let arr = imgs.split(',');
             //alert(arr); 
             addlist +="<div class='maintb'><div class='ui segments'>"
-                  +"<div class='ui segment'><p class='nicknameptag'><b>"+bbs.nickname+"</b></p><div style='float: left'><p>"+bbs.location+"</p> </div>"            
-                      +"<div style='float: right'><i class='ellipsis vertical icon'></i></div></div>"
-                  +"<div class='imgst'><ul class='bxslider'>";
+                  +"<div class='ui segment'><p class='nicknameptag'><b>"+bbs.nickname+"</b></p><div style='float: left'><p>"+bbs.location+"</p> </div>";
+
+            if(login_email == bbs.email){
+
+			addlist += "<div style='float: right'><div class='menu2'><i class='ellipsis vertical icon'></i>"
+					+"<ul class='hide'><li><a href='#''>삭제</a></li><li><a>수정</a></li></ul></div></div>";
+			
+            }           
+                      
+             addlist +="</div><div class='imgst'><ul class='bxslider'>";
                   
             for(var j = 0; j < bbs.imgs.length; j++){
             addlist+="<li><a href='#'><img src=\"image/"+bbs.imgs[j]+"\" alt='이미지 없음' width='100%' height='100%'></a></li>";
@@ -151,6 +173,22 @@
       
    }
 
-
+function delMain(main_post_number){
+	$.ajax({
+		url:'delMain.do',
+		type:'get',
+		data:{"seq":main_post_number},
+		success:function(data){
+			if(data==true){
+				alert("글이 삭제 되었습니다.");
+			}else{
+				alert("글 삭제 실패");
+			}
+		},
+		error:function(){
+			alert('error');
+		}
+	});
+}
 
 </script>

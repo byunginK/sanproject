@@ -144,6 +144,10 @@ public class BbsController {
 		
 	}
 	
-	
+	@RequestMapping(value = "delMain.do", method = RequestMethod.GET)
+	@ResponseBody
+	public boolean removeBbs(String seq) {
+		return bbsService.removeBbs(seq);
+	}
 
 }

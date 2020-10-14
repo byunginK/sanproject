@@ -16,6 +16,7 @@ public class BbsDto implements Serializable {
 	private String[] imgs;
 	private String nickname;
 	private int likecount;
+	private int del;
 	
 	// 검색을 위한 field
 	private String choice;
@@ -171,6 +172,15 @@ public class BbsDto implements Serializable {
 
 	public void setImgs(String[] imgs) {
 		this.imgs = imgs;
+	}
+
+	
+	public int getDel() {
+		return del;
+	}
+
+	public void setDel(int del) {
+		this.del = del;
 	}
 
 	@Override
