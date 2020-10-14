@@ -6,12 +6,12 @@
 
 	<insert id="addBbs" parameterType="com.san.spring.dto.BbsDto">
 		INSERT INTO MAINBBS
-		VALUES(SEQ_MAINBBS.NEXTVAL,#{email},#{title},#{content},#{location},0,#{imgname},#{originfilename},SYSDATE)
+		VALUES(SEQ_MAINBBS.NEXTVAL,#{email},#{title},#{content},#{location},0,#{imgname},#{originfilename},SYSDATE,0)
 	</insert>
 
 	<select id="allBbsList" parameterType="com.san.spring.dto.BbsDto" resultType="com.san.spring.dto.BbsDto">
-		SELECT POST_NUMBER, EMAIL, TITLE, CONTENT, LOCATION, AUTH_CHECK,IMGNAME, ORIGINFILENAME, WDATE,NICKNAME
-		FROM (SELECT ROW_NUMBER()OVER(ORDER BY WDATE DESC)AS RNUM, b.POST_NUMBER, b.EMAIL, b.TITLE, b.CONTENT, b.LOCATION, b.AUTH_CHECK,b.IMGNAME, b.ORIGINFILENAME, b.WDATE,m.NICKNAME
+		SELECT POST_NUMBER, EMAIL, TITLE, CONTENT, LOCATION, AUTH_CHECK,IMGNAME, ORIGINFILENAME, WDATE,NICKNAME,DEL
+		FROM (SELECT ROW_NUMBER()OVER(ORDER BY WDATE DESC)AS RNUM, b.POST_NUMBER, b.EMAIL, b.TITLE, b.CONTENT, b.LOCATION, b.AUTH_CHECK,b.IMGNAME, b.ORIGINFILENAME, b.WDATE,m.NICKNAME,b.DEL
 			 FROM MAINBBS b, MEMBER m
 			 WHERE b.EMAIL = m.EMAIL ORDER BY b.WDATE DESC)
 		WHERE RNUM BETWEEN #{start} AND #{end}
@@ -62,11 +62,16 @@
 	
 	<select id="getBbs" parameterType="String" resultType="com.san.spring.dto.BbsDto">
 		SELECT
-		b.POST_NUMBER,b.EMAIL, b.TITLE, b.CONTENT, b.LOCATION, b.AUTH_CHECK, b.IMGNAME,b.ORIGINFILENAME, b.WDATE, m.nickname
+		b.POST_NUMBER,b.EMAIL, b.TITLE, b.CONTENT, b.LOCATION, b.AUTH_CHECK, b.IMGNAME,b.ORIGINFILENAME, b.WDATE, m.nickname,b.DEL
 		FROM MAINBBS b , MEMBER m
 		WHERE b.Email = m.Email AND POST_NUMBER = #{post_number}
 	</select>
 
+	<update id="removeBbs" parameterType="String">
+	UPDATE MAINBBS
+	SET DEL = 1
+	WHERE POST_NUMBER = #{postNumber}
+	</update>
 
 </mapper>  
 

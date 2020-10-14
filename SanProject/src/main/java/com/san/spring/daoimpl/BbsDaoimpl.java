@@ -44,8 +44,8 @@ public class BbsDaoimpl implements BbsDao {
 
 	@Override
 	public boolean removeBbs(String seq) {
-		// TODO Auto-generated method stub
-		return false;
+		int result = sqlSession.update("removeBbs", seq);
+		return result>0?true:false;
 	}
 
 	@Override

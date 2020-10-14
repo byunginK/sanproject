@@ -64,8 +64,7 @@ public class BbsServiceimpl implements BbsService {
 
 	@Override
 	public boolean removeBbs(String seq) {
-		// TODO Auto-generated method stub
-		return false;
+		return bbsDao.removeBbs(seq);
 	}
 
 	@Override
