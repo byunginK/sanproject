@@ -55,6 +55,19 @@ public class MemberController {
 		return "mypage.tiles";
 	}
 
+	// 닉네임 중복 검사(AJAX)
+	@RequestMapping(value = "check_nickname.do", method = RequestMethod.POST)
+	public void check_nickname(@RequestParam("nickname") String nickname, HttpServletResponse response)
+			throws Exception {
+		memberService.check_nickname(nickname, response);
+	}
+
+	// 이메일 중복 검사(AJAX)
+	@RequestMapping(value = "check_email.do", method = RequestMethod.POST)
+	public void check_email(@RequestParam("email") String email, HttpServletResponse response) throws Exception {
+		memberService.check_email(email, response);
+	}
+
 	@RequestMapping(value = "login.do", method = { RequestMethod.GET, RequestMethod.POST }) // get, post 들어오는 방식
 																							// 중 하나 선택
 	public String login(HttpSession session, Model model) {
