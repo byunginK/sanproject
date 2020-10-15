@@ -33,10 +33,10 @@ body{padding: 0; margin: 0}
 #ajaxComment input{border: none; outline-style: none; font-size: 12px}
 .detailDiv .detailTopInfo{padding-left: 10px}
 ._cmtcontent .plus{float: right;}
-.cmtnick{display: inline-block; float: left;}
-.cmtnick span{font-weight: bold; font-size: 15px}
-.cmtcont{font-size: 12px;display: inline-block;width: 200px;margin-left: 5px}
-._cmtcontent{margin-top: 10px; margin-bottom: 10px}
+.cmtnick{ float: left;width:calc(250px-100px);}
+.cmtnick span{font-weight: bold; font-size: 15px;}
+.cmtcont{font-size: 12px;display: inline-block;margin-left: 5px;width:100px;}
+._cmtcontent{margin-top: 10px; margin-bottom: 10px;display: flex;flex-wrap: wrap;width:400px;}
 .replydiv{margin-left: 15px; margin-top: 10px}
 .mapdetailborder{border: 1px solid #c8c8c8;height: 652px;width: 1020px; border-radius: 10px}
 .mapdetailDiv{width: 400px; height:650px; float: right; overflow: auto;}

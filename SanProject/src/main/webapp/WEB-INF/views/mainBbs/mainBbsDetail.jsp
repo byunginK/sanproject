@@ -37,7 +37,7 @@
 							<div id='cmtcontent${cmt.post_number}'class='_cmtcontent'>
 								<div class='cmtnick'><i class="user icon"></i>
 								<span>${cmt.nickname}</span></div>
-								<div class='cmtcont'><span>${cmt.content}</span></div>
+								<div class='cmtcont'><span style="overflow-wrap:break-word;flex-basis: auto;">${cmt.content}</span></div>
 								<i class="plus icon" onclick='answerReply("${cmt.post_number}")'></i>
 							</div>	
 						</c:if>
@@ -78,6 +78,7 @@
 			});
 
 	});
+
 
 	function getBbsLike(post_number, email) {
 		$.ajax({
