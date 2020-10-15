@@ -134,7 +134,7 @@ public class BbsController {
 	}
 	
 	@RequestMapping(value = "goBbsDetail.do", method = RequestMethod.GET )
-	public String gotBbsDetail(String post_number, Model model) {
+	public String gotBbsDetail(String post_number, Model model, HttpServletRequest request) {
 		System.out.println("gotBbsDetail()");
 		BbsDto bbs = bbsService.getBbs(post_number);
 		List<CommentDto> list = commentService.getCmtList(post_number);

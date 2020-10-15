@@ -47,5 +47,15 @@ public class CmtController {
 		List<CommentDto> list = commentService.getCmtList(post_number);
 		return list;
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "removeComment.do", method = RequestMethod.GET)
+	public List<CommentDto> removeComment(CommentDto commentDto) {
+		System.out.println(commentDto);
+		commentService.removeComment(commentDto);
+		String post_number = commentDto.getMain_post_number()+"";
+		List<CommentDto> list = commentService.getCmtList(post_number);
+		return list;
+	}
 
 }
