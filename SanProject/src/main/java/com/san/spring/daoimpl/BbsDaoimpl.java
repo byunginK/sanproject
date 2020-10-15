@@ -49,9 +49,9 @@ public class BbsDaoimpl implements BbsDao {
 	}
 
 	@Override
-	public boolean updateBbs(BbsDto bbsDto) {
-		// TODO Auto-generated method stub
-		return false;
+	public int updateBbs(BbsDto bbsDto) {
+		int result =  sqlSession.update("updateBbs", bbsDto);
+		return result;
 	}
 
 	@Override

@@ -150,4 +150,16 @@ public class BbsController {
 		return bbsService.removeBbs(seq);
 	}
 
+	@RequestMapping(value = "updateMain.do", method = RequestMethod.GET)
+	public String updateMain(String post_number, Model model) {
+		BbsDto dto = bbsService.getBbs(post_number);
+		model.addAttribute("bbs", dto);
+		return "mainUpdate.tiles";
+	}
+	
+	@RequestMapping(value = "updateMainBbs.do", method = RequestMethod.POST)
+	@ResponseBody
+	public int updateMainBbs(BbsDto bbs) {
+		return bbsService.updateBbs(bbs);
+	}
 }

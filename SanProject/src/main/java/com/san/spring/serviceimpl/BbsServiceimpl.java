@@ -68,9 +68,8 @@ public class BbsServiceimpl implements BbsService {
 	}
 
 	@Override
-	public boolean updateBbs(BbsDto bbsDto) {
-		// TODO Auto-generated method stub
-		return false;
+	public int updateBbs(BbsDto bbsDto) {
+		return bbsDao.updateBbs(bbsDto);
 	}
 
 

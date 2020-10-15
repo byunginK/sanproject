@@ -72,6 +72,12 @@
 		SET DEL = 1
 		WHERE POST_NUMBER = #{postNumber}
 	</update>
+	
+	<update id="updateBbs" parameterType="com.san.spring.dto.BbsDto">
+		UPDATE MAINBBS
+		SET LOCATION = #{location}, CONTENT = #{content}
+		WHERE POST_NUMBER = #{post_number}
+	</update>
 
 </mapper>  
 
