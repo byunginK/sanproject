@@ -47,5 +47,12 @@ public class CommentDaoimpl implements CommentDao {
 		return sqlSession.selectList("getCmtList", post_number);
 	}
 
+	@Override
+	public boolean removeComment(CommentDto commentDto) {
+		System.out.println("removeComment");
+		int result = sqlSession.update("removeComment", commentDto);
+		return result>0?true:false;
+	}
+
 
 }

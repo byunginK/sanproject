@@ -23,5 +23,17 @@
 		INSERT INTO MAINCOMMENT(POST_NUMBER, EMAIL, MAIN_POST_NUMBER, CONTENT, STEP, REF, DEL, WDATE) 
 		VALUES(SEQ_COMMENT.NEXTVAL, #{email}, #{main_post_number} , #{content}, (SELECT STEP FROM MAINCOMMENT WHERE POST_NUMBER = #{post_number})+1, (SELECT REF FROM MAINCOMMENT WHERE POST_NUMBER = #{post_number}), 0, SYSDATE) 
 	</insert>
+	
+	<update id="removeComment" parameterType="com.san.spring.dto.CommentDto">
+		UPDATE MAINCOMMENT
+		SET DEL = 1
+		<if test="step == 0">
+			WHERE REF = #{ref}
+		</if>
+		<if test="step > 0">
+			WHERE POST_NUMBER = #{post_number}
+		</if>
+		
+	</update>
 </mapper>  
 

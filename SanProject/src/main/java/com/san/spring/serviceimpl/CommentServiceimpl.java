@@ -44,4 +44,10 @@ public class CommentServiceimpl implements CommentService {
 		return commentDao.getCmtList(post_number);
 	}
 
+	@Override
+	public boolean removeComment(CommentDto commentDto) {
+		System.out.println("removeComment");
+		return commentDao.removeComment(commentDto);
+	}
+
 }

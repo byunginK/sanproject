@@ -68,9 +68,9 @@
 	</select>
 
 	<update id="removeBbs" parameterType="String">
-	UPDATE MAINBBS
-	SET DEL = 1
-	WHERE POST_NUMBER = #{postNumber}
+		UPDATE MAINBBS
+		SET DEL = 1
+		WHERE POST_NUMBER = #{postNumber}
 	</update>
 
 </mapper>  

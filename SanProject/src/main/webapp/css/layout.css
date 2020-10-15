@@ -33,17 +33,10 @@ body{padding: 0; margin: 0}
 #ajaxComment input{border: none; outline-style: none; font-size: 12px}
 .detailDiv .detailTopInfo{padding-left: 10px}
 ._cmtcontent .plus{float: right;}
-<<<<<<< HEAD
-.cmtnick{ float: left;width:calc(250px-100px);}
-.cmtnick span{font-weight: bold; font-size: 15px;}
-.cmtcont{font-size: 12px;display: inline-block;margin-left: 5px;width:100px;}
-._cmtcontent{margin-top: 10px; margin-bottom: 10px;display: flex;flex-wrap: wrap;width:400px;}
-=======
 .cmtnick{display: inline-block; float: left; flex-basis: auto;}
 .cmtnick span{font-weight: bold; font-size: 15px}
 .cmtcont{font-size: 12px;display: inline-block;padding-left: 5px;padding-right: 5px; flex-basis: auto;}
 ._cmtcontent{margin-top: 10px; margin-bottom: 10px;display: flex;}
->>>>>>> e43c55b9f31160a42be9b7d193f049e8cabd4ae6
 .replydiv{margin-left: 15px; margin-top: 10px}
 .mapdetailborder{border: 1px solid #c8c8c8;height: 652px;width: 1020px; border-radius: 10px}
 .mapdetailDiv{width: 400px; height:650px; float: right; overflow: auto;}
@@ -60,11 +53,3 @@ body{padding: 0; margin: 0}
 #pac-input:focus {border-color: #4d90fe;}
 #title {color: #fff;background-color: #4d90fe;font-size: 25px;font-weight: 500;padding: 6px 12px;}
 #target {width: 345px;}
-
-
-
-
-
-
-
-
