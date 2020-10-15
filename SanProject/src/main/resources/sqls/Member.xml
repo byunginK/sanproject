@@ -10,18 +10,21 @@
 		VALUES(#{email},#{password},#{nickname},#{name},3,0,#{marketing},0,0)
 	</insert>
 
-	<select id="checkId" parameterType="java.lang.String"
-		resultType="java.lang.String">
-		SELECT COUNT(ID) FROM MEMBER WHERE ID = #{email}
-	</select>
-
 	<select id="login"
 		parameterType="com.san.spring.login.MemberDto"
 		resultType="com.san.spring.login.MemberDto">
 		SELECT * FROM MEMBER WHERE EMAIL = #{email} AND PASSWORD =
 		#{password}
 	</select>
-
-
+	
+	<select id="check_nickname" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		SELECT COUNT(NICKNAME) FROM MEMBER WHERE NICKNAME = #{nickname}
+	</select>
+	
+	<select id="check_email" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		SELECT COUNT(EMAIL) FROM MEMBER WHERE EMAIL = #{email}
+	</select>
 
 </mapper>
