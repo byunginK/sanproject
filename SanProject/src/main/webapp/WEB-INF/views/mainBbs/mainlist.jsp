@@ -5,7 +5,6 @@
  <input type="hidden" id="email" name="email" value="${login.email}">
 
     <c:forEach items="${bbslist }" var="bbs">
-     <c:if test="${bbs.del == 0 }">
     <div class="maintb">
             <div class="ui segments">
               <div class="ui segment ">
@@ -49,7 +48,7 @@
         
       <div class="ui hidden divider"></div>
       </div>
-      </c:if>
+      
    </c:forEach>
    
 </div>
@@ -183,6 +182,7 @@ function delMain(main_post_number){
 		success:function(data){
 			if(data==true){
 				alert("글이 삭제 되었습니다.");
+				location.href="bbslist.do";
 			}else{
 				alert("글 삭제 실패");
 			}

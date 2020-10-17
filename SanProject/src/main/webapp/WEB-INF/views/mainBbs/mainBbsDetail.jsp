@@ -16,9 +16,15 @@
 				</div>
 				<div class='detailDiv'>
 					<div class="detailTopInfo">
+					<c:if test="${login.email == bbs.email }">
 					<div style="float: right;">
-						<i class="ellipsis vertical icon"></i>
+						<a class="detailMenu"><i class="ellipsis vertical icon"></i></a>
+						 <ul class='hide' id='menu'>
+							<li><a href='#' onclick='delMain(${bbs.post_number})'>삭제</a></li>
+							<li><a href='#' onclick='updateMain(${bbs.post_number})'>수정</a></li>
+						</ul>
 					</div>
+					</c:if>
 					<div>
 						<i class="user icon"></i>
 						<span class='nicknameptag'>${bbs.nickname}</span>
@@ -96,6 +102,14 @@
 		$('.bxslider').bxSlider({
 			pager:false
 			});
+		$(".detailMenu").click(function() {
+			var submenu = $(this).next("ul");
+			if (submenu.is(":visible")) {
+				submenu.slideUp();
+			} else {
+				submenu.slideDown();
+			}
+		});
 
 	});
     function divDetailMenu(post_number){
@@ -343,5 +357,27 @@
 										});
 
 							
+	}
+	function delMain(main_post_number){
+		$.ajax({
+			url:'delMain.do',
+			type:'get',
+			data:{"seq":main_post_number},
+			success:function(data){
+				if(data==true){
+					alert("글이 삭제 되었습니다.");
+					location.href='bbslist.do';
+				}else{
+					alert("글 삭제 실패");
+				}
+			},
+			error:function(){
+				alert('error');
+			}
+		});
+	}
+
+	function updateMain(main_post_number){
+		location.href='updateMain.do?post_number='+main_post_number;
 	}
 </script>
