@@ -89,7 +89,7 @@
       }
     
 	
-	$("#pac-input").keydown(function(key){
+ 	$("#pac-input").keydown(function(key){
         if(key.keyCode==13){
              let adress_text = $("#pac-input").val();
              $.ajax({
@@ -124,6 +124,25 @@
                 }
                    
            })};
+     });  
+
+	$("#pac-input").keydown(function(key){
+        if(key.keyCode==13){
+             let adress_text = $("#pac-input").val();
+             $.ajax({
+                url : "./Matzip.do",
+                type : "POST",
+                data : {"address": adress_text},
+                dataType :"text",
+                success : function(retVal){
+                   console.log(retVal);
+                },
+                error : function(retVal){
+                   alert("error");
+                }
+                   
+           })};
      });
+    
 	</script>
 
