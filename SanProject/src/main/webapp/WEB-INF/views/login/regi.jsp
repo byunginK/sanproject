@@ -561,8 +561,8 @@ input[type=button]:hover, input[type=reset]:hover {
 													+ "<input type=button id=vfcheck value=인증>";
 											$(".email.regex").prepend(input);
 											/// $("td:eq(3)").append(input);
-											$("auth").append(input);
-											$("email").append(input);
+											//$("auth").append(input);
+											//$("email").append(input);
 											$("#vfcheck")
 													.click(
 															function() {

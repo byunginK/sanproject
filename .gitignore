@@ -42,6 +42,8 @@ Servers
 /SanProject/target
 /SanProject/.classpath
 /SanProject/.project
+/SanProject/.pydevproject
+/SanProject/*.py
 /SanProject/.springBeans
 /SanProject/SanUML.ucls
 /SanProject/src/main/webapp/META-INF/maven/com.san/spring/pom.properties
