@@ -52,6 +52,10 @@
 	<put-attribute name="main" value="/WEB-INF/views/sanInfo/mountainInfo.jsp"/>
 	</definition>
 	
+	<definition name="mainUpdate.tiles" extends="mainBbs.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/mainBbs/mainUpdate.jsp"/>
+	</definition>
+	
 	<definition name="mypage.tiles" template="/WEB-INF/views/layout2-tiles.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/fix/header.jsp"/>
 		<put-attribute name="top_menu" value="/WEB-INF/views/fix/top_menu.jsp"/>

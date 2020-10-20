@@ -5,7 +5,6 @@
  <input type="hidden" id="email" name="email" value="${login.email}">
 
     <c:forEach items="${bbslist }" var="bbs">
-     <c:if test="${bbs.del == 0 }">
     <div class="maintb">
             <div class="ui segments">
               <div class="ui segment ">
@@ -16,10 +15,10 @@
                </div>
                <c:if test='${login.email == bbs.email }'>
                <div style="float: right">
-                 <div class='menu2'><i class='ellipsis vertical icon'></i>
-                 <ul class='hide'>
-					<li><a href="#" onclick='delMain(${bbs.post_number})'>삭제</a></li>
-					<li><a>수정</a></li>
+                 <div onclick="delAndUp(${bbs.post_number})" ><i class='ellipsis vertical icon'></i>
+                 <ul class='hide' id='menu${bbs.post_number }'>
+					<li><a href='#' onclick='delMain(${bbs.post_number})'>삭제</a></li>
+					<li><a href='#' onclick='updateMain(${bbs.post_number})'>수정</a></li>
 				</ul></div>
                </div>
 				</c:if>
@@ -49,7 +48,7 @@
         
       <div class="ui hidden divider"></div>
       </div>
-      </c:if>
+      
    </c:forEach>
    
 </div>
@@ -70,7 +69,9 @@
    $(document).on('scroll', function(){
       $('.bxslider').bxSlider();
    });
-   $(document).on('click','.menu2',function(){
+	
+   
+   /* $(document).on('click','.menu2',function(){
 	   
 		var submenu = $(".menu2 i").next("ul");
 		if (submenu.is(":visible")) {
@@ -79,7 +80,7 @@
 			submenu.slideDown();
 		}
 		
-	});
+	}); */
 
    let np = 0;
    $(window).scroll(function() {
@@ -107,8 +108,8 @@
 
             if(login_email == bbs.email){
 
-			addlist += "<div style='float: right'><div class='menu2'><i class='ellipsis vertical icon'></i>"
-					+"<ul class='hide'><li><a href='#''>삭제</a></li><li><a>수정</a></li></ul></div></div>";
+			addlist += "<div style='float: right'><div onclick='delAndUp("+bbs.post_number+")'><i class='ellipsis vertical icon'></i>"
+					+"<ul class='hide' id='menu"+bbs.post_number+"'><li><a href='#' onclick='delMain("+bbs.post_number+")'>삭제</a></li><li><a href='#' onclick='updateMain("+bbs.post_number+")'>수정</a></li></ul></div></div>";
 			
             }           
                       
@@ -181,6 +182,7 @@ function delMain(main_post_number){
 		success:function(data){
 			if(data==true){
 				alert("글이 삭제 되었습니다.");
+				location.href="bbslist.do";
 			}else{
 				alert("글 삭제 실패");
 			}
@@ -191,4 +193,11 @@ function delMain(main_post_number){
 	});
 }
 
+function updateMain(main_post_number){
+	location.href='updateMain.do?post_number='+main_post_number;
+}
+
+function delAndUp(post_number){
+	$("#menu" + post_number).slideToggle();
+}
 </script>
