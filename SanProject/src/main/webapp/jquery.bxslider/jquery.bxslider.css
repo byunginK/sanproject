@@ -25,7 +25,8 @@ ul.bxslider {
 .bx-viewport {
   /*fix other elements on the page moving (on Chrome)*/
   -webkit-transform: translatez(0);
-  border-radius: 10px
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
 }
 /** THEME
 ===================================*/
@@ -35,7 +36,8 @@ ul.bxslider {
   box-shadow: 0 0 5px #ccc;
   /* border: 5px solid #fff; */
   background: #fff;
-  border-radius: 10px
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
 }
 .bx-wrapper .bx-pager,
 .bx-wrapper .bx-controls-auto {
