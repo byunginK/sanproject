@@ -23,21 +23,42 @@ body{padding: 0; margin: 0}
 .nicknameptag{font-size: 18px;font-weight: bold;}
 .contst{margin-top: 20px; margin-left: 20px; margin-bottom: 20px; margin-right: 20px}
 .mainbbsdetailimg{float: left; width: 618px; height: 650px;}
-.detailDiv{width: 400px; height:650px; margin-top: 10; float: right;}
+.detailDiv{max-width: 400px; height:650px; margin-top: 10; float: right;width: 100%}
 .detailborder{border: 1px solid #c8c8c8;height: 652px;width: 1020px; border-radius: 10px}
 .detailcont{width: 400px;margin-top: 5px;padding-left: 10px;padding-right: 10px;}
-#ajaxComment{height: 72%; overflow: auto; margin-top: 15px; border-top:1px solid #c8c8c8; border-bottom:1px solid #c8c8c8; margin-bottom: 10px; padding-right: 10px; padding-left: 10px}
-.detailcomment{margin-top: 10px; padding-top: 10px; padding-left: 10px; border-top: 1px solid #c8c8c8;}
+#ajaxComment{height: 72%; overflow-x: hidden;overflow-y:scroll;padding:12px 16px;border-bottom: 1px solid rgba(0,0,0,.0975);margin-bottom: 10px;}
+.detailcomment{margin-top: 10px; padding-top: 10px; padding-left: 10px; border-top: 1px solid rgba(0,0,0,.0975);}
 .detailcomment input{border: none; outline-style: none; font-size: 15;}
 .mainbbsdetailimg img{width: 100%; height: 100%}
 #ajaxComment input{border: none; outline-style: none; font-size: 12px}
 .detailDiv .detailTopInfo{padding-left: 10px}
-._cmtcontent .plus{float: right;}
-.cmtnick{display: inline-block; float: left; flex-basis: auto;}
-.cmtnick span{font-weight: bold; font-size: 15px}
-.cmtcont{font-size: 12px;display: inline-block;padding-left: 5px;padding-right: 5px; flex-basis: auto;}
-._cmtcontent{margin-top: 10px; margin-bottom: 10px;display: flex;}
-.replydiv{margin-left: 15px; margin-top: 10px}
+.detailDiv .top{display: flex; justify-content: space-between; align-content: center; padding: 13px 17px; position: relative; border-bottom: 1px solid rgba(0,0,0,.0975)}
+.user_container{display: flex; align-items: center;}
+.user_container .profile_img{width: 32px; height: 32px; border-radius: 50%; overflow: hidden; margin-right: 10px;}
+.user_container .profile_img img{height: 100%; width: 100%;}
+.user_container .user_name{color:#262626;}
+.user_container .nick_name{font-size: 14px;font-weight: bold; margin-bottom: 5px;}
+.user_container .country{font-size: 12px;}
+.sprite_more_icon {display: inline-block; width: 15px; height: 3px;}
+.top .more_detail{list-style: none; display: none; position: absolute; right: -60px; top: 40px; background:white; border: 1px solid rgba(0,0,0,.0975); border-radius: 3px;z-index: 100; box-shadow: 2px 2px 2px rgba(128, 128, 128, 0.34);/*display: none;*/transform-origin: left top;transform:scale(0);transition:all 0.3s ;}
+.top .more_detail > li{padding: 10px 20px;cursor: pointer;}
+#ajaxComment .admin_container{ margin-bottom: 10px;}
+#ajaxComment ._cmtcontent{margin-bottom: 10px;}
+#ajaxComment .admin_container .admin,
+#ajaxComment ._cmtcontent .cmtnick{width: 32px; height: 32px; min-width:32px; border-radius: 50%; overflow:hidden; margin-right: 10px;}
+#ajaxComment .admin_container .admin img,
+#ajaxComment ._cmtcontent .cmtnick img{ width: 100%;height: 100%;}
+#ajaxComment .comment{line-height:1.4; position: relative; width: 350px;}
+#ajaxComment .user_id{ color:#262626; font-size: 14px; font-weight: bold; margin-right:5px;}
+#ajaxComment .comment .time{ font-size: 15px; color:#999; margin-top: 10px;}
+#ajaxComment .admin_container,
+#ajaxComment ._cmtcontent{ display: flex;}
+.replydiv{margin-left: 25px;margin-bottom: 10px; display: flex;}
+.replydiv .cmtnick{width: 32px; height: 32px; min-width:32px; border-radius: 50%; overflow:hidden; margin-right: 10px;}
+.replydiv .cmtnick img{ width: 100%;height: 100%;}
+.replydiv .cmtcont{line-height:1.4; position: relative; width: 100%;}
+.replydiv .user_id{ color:#262626; font-size: 14px; font-weight: bold; margin-right:5px;}
+.replydiv .cmtcont .time{ font-size: 15px; color:#999; margin-top: 10px;}
 .mapdetailborder{border: 1px solid #c8c8c8;height: 652px;width: 1020px; border-radius: 10px}
 .mapdetailDiv{width: 400px; height:650px; float: right; overflow: auto;}
 #map {float: left; width: 618px; height: 650px;}

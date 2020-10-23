@@ -35,7 +35,7 @@
 		<put-attribute name="top_menu" value="/WEB-INF/views/fix/top_menu.jsp"/>
 		<put-attribute name="main" value="/WEB-INF/views/mainBbs/mainlist.jsp"/>
 	</definition>
-	
+
 	<definition name="mainBbsDetail.tiles" extends="mainBbs.tiles">
 		<put-attribute name="main" value="/WEB-INF/views/mainBbs/mainBbsDetail.jsp"/>
 	</definition>
@@ -54,6 +54,10 @@
 	
 	<definition name="mainUpdate.tiles" extends="mainBbs.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/mainBbs/mainUpdate.jsp"/>
+	</definition>
+	
+	<definition name="mainBbsDetailTest.tiles" extends="mainBbs.tiles">
+		<put-attribute name="main" value="/WEB-INF/views/detail-page.jsp"/>
 	</definition>
 	
 	<definition name="mypage.tiles" template="/WEB-INF/views/layout2-tiles.jsp">

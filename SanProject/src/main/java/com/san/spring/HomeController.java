@@ -36,5 +36,10 @@ public class HomeController {
 		
 		return "home";
 	}
-
+	
+	@RequestMapping(value = "/test.do", method = RequestMethod.GET)
+	public String test(Locale locale, Model model) {
+	
+		return "mainBbsDetailTest.tiles";
+	}
 }
