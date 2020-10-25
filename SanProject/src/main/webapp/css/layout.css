@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 body{padding: 0; margin: 0}
-#body_wrap { width:100%; margin-left:auto; margin-right:auto; padding:0px; }	
+#body_wrap { width:100%; margin-left:auto; margin-right:auto; padding:0px; }   
 #main_wrap{height:80px; margin-left: auto; margin-right: auto; background: #EBFFEB}
 #middle_wrap { width:1050px; height:100%; padding:0px; margin-left:auto; margin-right:auto; margin-top: 50px;}
 #content_wrap { width:60%;  float: left; margin: 0px;}
@@ -193,4 +193,4 @@ fieldset:disabled a.btn {
 .card-img-top {
   border-top-left-radius: calc(0.25rem - 1px);
   border-top-right-radius: calc(0.25rem - 1px);
-} 
+}  
