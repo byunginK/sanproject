@@ -57,7 +57,9 @@
 									</div>
 									<c:choose>
 										<c:when test="${(bbs.email eq login.email) || (cmt.email eq login.email)}">
-											<div onclick='divDetailMenu("${cmt.post_number}")'><i class='ellipsis vertical icon'></i>
+										
+											<div >
+											<i class='ellipsis vertical icon' onclick='divDetailMenu("${cmt.post_number}")'></i>
 								                 <ul class='hide' id="ulDetailMenu${cmt.post_number}">
 													<li><a onclick='answerReply("${cmt.post_number}")'>답글</a></li>
 													<li><a onclick='removeComment("${cmt.post_number}", "${cmt.ref}", "${cmt.step}")'>삭제</a></li>
