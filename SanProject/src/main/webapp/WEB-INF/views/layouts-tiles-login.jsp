@@ -8,22 +8,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/layout.css">
+<tiles:insertAttribute name="header"/>
 </head>
-<body>
+<body id="login_body_wrap">
 
 	<!-- 화면 배치용 jsp -->
 
-	<div id="body_wrap">
 
-		<table>
-			<tr>
-				<td width="20%" align="left" valign="top">
-					<tiles:insertAttribute name="login"/>
-				</td>
-			</tr>
-		</table>
-
-	</div>
+	<tiles:insertAttribute name="login"/>
+	
 
 
 </body>
