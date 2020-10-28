@@ -13,7 +13,7 @@
 
 <!-- 화면 배치용 jsp -->
 
-<div id="login_body_wrap">
+<div id="body_wrap">
 	<div id="main_wrap">
 		<tiles:insertAttribute name="top_menu"/>
 	</div>
