@@ -7694,7 +7694,6 @@ i.icon {
   -webkit-font-smoothing: antialiased;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  float: right;
 }
 
 i.icon:before {

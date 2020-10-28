@@ -30,7 +30,7 @@
                <p>${bbs.content}</p>
                
                <div>
-               <input type="text" name="content" id="content${bbs.post_number}" placeholder="댓글 달기" style="border: none; outline-style: none; font-size:16;" size="68">
+               <input type="text" name="content" id="content${bbs.post_number}" placeholder="댓글 달기" style="border: none; outline-style: none; font-size:16; width: 90%">
                <i class="big comment alternate outline icon" onclick='comment_button("${bbs.post_number}","${login.email}")'></i>
            	   </div>
    
