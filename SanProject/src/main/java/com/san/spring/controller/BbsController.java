@@ -162,4 +162,10 @@ public class BbsController {
 	public int updateMainBbs(BbsDto bbs) {
 		return bbsService.updateBbs(bbs);
 	}
+	
+	@RequestMapping(value = "exitChat.do", method = RequestMethod.GET, produces = "application/text; charset=utf8")
+	@ResponseBody
+	public String closeChat() {
+		return "오픈 채팅방을 나갑니다";
+	}
 }
