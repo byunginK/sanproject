@@ -27,11 +27,11 @@
 					</div>
 					
 					<c:if test="${login.email == bbs.email }">
-					<div class="sprite_more_icon" onclick='divDetailMenu("${bbs.post_number}")'><i class='ellipsis vertical icon'></i>
-						 <ul class='hide' id='ulDetailMenu${bbs.post_number}'>
+					<div class="sprite_more_icon" onclick='divDetailMenu("${bbs.post_number}")'><div class='compos'><i class='ellipsis vertical icon'></i>
+						 <ul class='hide2' id='ulDetailMenu${bbs.post_number}'>
 							<li><a href='#' onclick='delMain(${bbs.post_number})'>삭제</a></li>
 							<li><a href='#' onclick='updateMain(${bbs.post_number})'>수정</a></li>
-						</ul>
+						</ul></div>
 					</div>
 					</c:if>
 					</div>
@@ -58,9 +58,9 @@
 									<c:choose>
 										<c:when test="${(bbs.email eq login.email) || (cmt.email eq login.email)}">
 										
-											<div >
+											<div class='compos'>
 											<i class='ellipsis vertical icon' onclick='divDetailMenu("${cmt.post_number}")'></i>
-								                 <ul class='hide' id="ulDetailMenu${cmt.post_number}">
+								                 <ul class='hide2' id="ulDetailMenu${cmt.post_number}">
 													<li><a onclick='answerReply("${cmt.post_number}")'>답글</a></li>
 													<li><a onclick='removeComment("${cmt.post_number}", "${cmt.ref}", "${cmt.step}")'>삭제</a></li>
 												</ul>
@@ -83,8 +83,8 @@
 									<div class="time"></div>
 								</div>
 								<c:if test="${(bbs.email eq login.email) || (cmt.email eq login.email)}">
-									<div onclick='divDetailMenu("${cmt.post_number}")'><i class='ellipsis vertical icon'></i>
-								          <ul class='hide' id="ulDetailMenu${cmt.post_number}">
+									<div onclick='divDetailMenu("${cmt.post_number}")' class='compos'><i class='ellipsis vertical icon'></i>
+								          <ul class='hide2' id="ulDetailMenu${cmt.post_number}">
 												<li onclick='removeComment("${cmt.post_number}", "${cmt.ref}", "${cmt.step}")'><a>삭제</a></li>
 										  </ul>
 									</div>	
@@ -168,16 +168,16 @@
 											       +  "<div class='cmtnick'><img src='image/thumb.jpeg'></div>"
 												   +  "<div class='comment'><span class='user_id'>"+cmt.nickname+"</span>"+cmt.content+"<div class='time'></div></div>";
 												   if((bbsEmail == loginEmail) || (cmt.email == loginEmail)){
-													   addcmt += "<div onclick='divDetailMenu(" +'"'+ cmt.post_number+'"'+")'><i class='ellipsis vertical icon'></i>"
-										                 	  +  "<ul class='hide' id=ulDetailMenu"+cmt.post_number+">"
+													   addcmt += "<div class='compos'><i class='ellipsis vertical icon' onclick='divDetailMenu(" +'"'+ cmt.post_number+'"'+")'></i>"
+										                 	  +  "<ul class='hide2' id=ulDetailMenu"+cmt.post_number+">"
 															  +  "<li><a onclick='answerReply(" +'"'+ cmt.post_number+'"'+")'>답글</a></li>"
-															  +  "<li><a onclick='removeComment("+'"'+cmt.post_number+'"'+","+'"'+cmt.ref+'"'+","+'"'+cmt.step+'"'+")')'>삭제</a></li></ul></div></div>";
+															  +  "<li><a onclick='removeComment("+'"'+cmt.post_number+'"'+","+'"'+cmt.ref+'"'+","+'"'+cmt.step+'"'+")')'>삭제</a></li></ul></div>";
 							
 												   }
 												   else{
-													   addcmt += "<i class='plus icon' onclick='answerReply(" +'"'+ cmt.post_number+'"'+")'></i></div>";
+													   addcmt += "<i class='plus icon' onclick='answerReply(" +'"'+ cmt.post_number+'"'+")'></i>";
 												   }
-												   addcmt +=  "<div id='ans"+cmt.post_number+"' class='_ans' style='display: none'>"
+												   addcmt +=  "</div><div id='ans"+cmt.post_number+"' class='_ans' style='display: none'>"
 														   +  "<input type=text id=answer"+cmt.post_number+" name='answer"+cmt.post_number+"' placeholder=답글 달기  size=25%>"
 													       +  "<i class='plus icon' id='answerSubmit"+cmt.post_number+"'></i></div>";
 													       
@@ -188,11 +188,12 @@
 												       +  "<div class='cmtnick'><img src='image/thumb.jpeg'></div>"
 													   +  "<div class='cmtcont'><span class='user_id'>"+ cmt.nickname+"</span>"+cmt.content+"<div  class='time'></div></div>";
 												   if((bbsEmail == loginEmail) || (cmt.email == loginEmail)){
-													   addcmt += "<div onclick='divDetailMenu(" +'"'+ cmt.post_number+'"'+")'><i class='ellipsis vertical icon'></i>"
-									                 	      +  "<ul class='hide' id=ulDetailMenu"+cmt.post_number+">"
-														      +  "<li onclick='removeComment("+'"'+cmt.post_number+'"'+","+'"'+cmt.ref+'"'+","+'"'+cmt.step+'"'+")')'><a>삭제</a></li></ul></div></div>";
+													   addcmt += "<div onclick='divDetailMenu(" +'"'+ cmt.post_number+'"'+")' class='compos'><i class='ellipsis vertical icon'></i>"
+									                 	      +  "<ul class='hide2' id=ulDetailMenu"+cmt.post_number+">"
+														      +  "<li onclick='removeComment("+'"'+cmt.post_number+'"'+","+'"'+cmt.ref+'"'+","+'"'+cmt.step+'"'+")')'><a>삭제</a></li></ul></div>";
 						 
 												   }
+												addcmt +="</div>";
 											}
 										});
 										$("#ajaxComment").html(addcmt).trigger("create");	//동적 생성 후 css 적용을 위해 trigger("create")를 붙여야한다
@@ -247,16 +248,16 @@
 													       +  "<div class='cmtnick'><img src='image/thumb.jpeg'></div>"
 														   +  "<div class='comment'><span class='user_id'>"+cmt.nickname+"</span>"+cmt.content+"<div class='time'></div></div>";
 														   if((bbsEmail == loginEmail) || (cmt.email == loginEmail)){
-															   addcmt += "<div onclick='divDetailMenu(" +'"'+ cmt.post_number+'"'+")'><i class='ellipsis vertical icon'></i>"
-												                 	  +  "<ul class='hide' id=ulDetailMenu"+cmt.post_number+">"
+															   addcmt += "<div class='compos'><i class='ellipsis vertical icon' onclick='divDetailMenu(" +'"'+ cmt.post_number+'"'+")'></i>"
+												                 	  +  "<ul class='hide2' id=ulDetailMenu"+cmt.post_number+">"
 																	  +  "<li><a onclick='answerReply(" +'"'+ cmt.post_number+'"'+")'>답글</a></li>"
-																	  +  "<li><a onclick='removeComment("+'"'+cmt.post_number+'"'+","+'"'+cmt.ref+'"'+","+'"'+cmt.step+'"'+")')'>삭제</a></li></ul></div></div>";
+																	  +  "<li><a onclick='removeComment("+'"'+cmt.post_number+'"'+","+'"'+cmt.ref+'"'+","+'"'+cmt.step+'"'+")')'>삭제</a></li></ul></div>";
 									
 														   }
 														   else{
-															   addcmt += "<i class='plus icon' onclick='answerReply(" +'"'+ cmt.post_number+'"'+")'></i></div>";
+															   addcmt += "<i class='plus icon' onclick='answerReply(" +'"'+ cmt.post_number+'"'+")'></i>";
 														   }
-														   addcmt +=  "<div id='ans"+cmt.post_number+"' class='_ans' style='display: none'>"
+														   addcmt +=  "</div><div id='ans"+cmt.post_number+"' class='_ans' style='display: none'>"
 																   +  "<input type=text id=answer"+cmt.post_number+" name='answer"+cmt.post_number+"' placeholder=답글 달기  size=25%>"
 															       +  "<i class='plus icon' id='answerSubmit"+cmt.post_number+"'></i></div>";
 															       
@@ -267,11 +268,12 @@
 														       +  "<div class='cmtnick'><img src='image/thumb.jpeg'></div>"
 															   +  "<div class='cmtcont'><span class='user_id'>"+ cmt.nickname+"</span>"+cmt.content+"<div  class='time'></div></div>";
 														   if((bbsEmail == loginEmail) || (cmt.email == loginEmail)){
-															   addcmt += "<div onclick='divDetailMenu(" +'"'+ cmt.post_number+'"'+")'><i class='ellipsis vertical icon'></i>"
-											                 	      +  "<ul class='hide' id=ulDetailMenu"+cmt.post_number+">"
-																      +  "<li onclick='removeComment("+'"'+cmt.post_number+'"'+","+'"'+cmt.ref+'"'+","+'"'+cmt.step+'"'+")')'><a>삭제</a></li></ul></div></div>";
+															   addcmt += "<div onclick='divDetailMenu(" +'"'+ cmt.post_number+'"'+")' class='compos'><i class='ellipsis vertical icon'></i>"
+											                 	      +  "<ul class='hide2' id=ulDetailMenu"+cmt.post_number+">"
+																      +  "<li onclick='removeComment("+'"'+cmt.post_number+'"'+","+'"'+cmt.ref+'"'+","+'"'+cmt.step+'"'+")')'><a>삭제</a></li></ul></div>";
 								 
 														   }
+														addcmt += "</div>";
 													}
 												});
 												$("#ajaxComment").html(addcmt).trigger("create");
@@ -319,16 +321,16 @@
 													       +  "<div class='cmtnick'><img src='image/thumb.jpeg'></div>"
 														   +  "<div class='comment'><span class='user_id'>"+cmt.nickname+"</span>"+cmt.content+"<div class='time'></div></div>";
 														   if((bbsEmail == loginEmail) || (cmt.email == loginEmail)){
-															   addcmt += "<div onclick='divDetailMenu(" +'"'+ cmt.post_number+'"'+")'><i class='ellipsis vertical icon'></i>"
-												                 	  +  "<ul class='hide' id=ulDetailMenu"+cmt.post_number+">"
+															   addcmt += "<div class='compos'><i class='ellipsis vertical icon' onclick='divDetailMenu(" +'"'+ cmt.post_number+'"'+")'></i>"
+												                 	  +  "<ul class='hide2' id=ulDetailMenu"+cmt.post_number+">"
 																	  +  "<li><a onclick='answerReply(" +'"'+ cmt.post_number+'"'+")'>답글</a></li>"
-																	  +  "<li><a onclick='removeComment("+'"'+cmt.post_number+'"'+","+'"'+cmt.ref+'"'+","+'"'+cmt.step+'"'+")')'>삭제</a></li></ul></div></div>";
+																	  +  "<li><a onclick='removeComment("+'"'+cmt.post_number+'"'+","+'"'+cmt.ref+'"'+","+'"'+cmt.step+'"'+")')'>삭제</a></li></ul></div>";
 									
 														   }
 														   else{
-															   addcmt += "<i class='plus icon' onclick='answerReply(" +'"'+ cmt.post_number+'"'+")'></i></div>";
+															   addcmt += "<i class='plus icon' onclick='answerReply(" +'"'+ cmt.post_number+'"'+")'></i>";
 														   }
-														   addcmt +=  "<div id='ans"+cmt.post_number+"' class='_ans' style='display: none'>"
+														   addcmt +=  "</div><div id='ans"+cmt.post_number+"' class='_ans' style='display: none'>"
 																   +  "<input type=text id=answer"+cmt.post_number+" name='answer"+cmt.post_number+"' placeholder=답글 달기  size=25%>"
 															       +  "<i class='plus icon' id='answerSubmit"+cmt.post_number+"'></i></div>";
 															       
@@ -339,11 +341,12 @@
 														       +  "<div class='cmtnick'><img src='image/thumb.jpeg'></div>"
 															   +  "<div class='cmtcont'><span class='user_id'>"+ cmt.nickname+"</span>"+cmt.content+"<div  class='time'></div></div>";
 														   if((bbsEmail == loginEmail) || (cmt.email == loginEmail)){
-															   addcmt += "<div onclick='divDetailMenu(" +'"'+ cmt.post_number+'"'+")'><i class='ellipsis vertical icon'></i>"
-											                 	      +  "<ul class='hide' id=ulDetailMenu"+cmt.post_number+">"
-																      +  "<li onclick='removeComment("+'"'+cmt.post_number+'"'+","+'"'+cmt.ref+'"'+","+'"'+cmt.step+'"'+")')'><a>삭제</a></li></ul></div></div>";
+															   addcmt += "<div onclick='divDetailMenu(" +'"'+ cmt.post_number+'"'+")' class='compos'><i class='ellipsis vertical icon'></i>"
+											                 	      +  "<ul class='hide2' id=ulDetailMenu"+cmt.post_number+">"
+																      +  "<li onclick='removeComment("+'"'+cmt.post_number+'"'+","+'"'+cmt.ref+'"'+","+'"'+cmt.step+'"'+")')'><a>삭제</a></li></ul></div>";
 								 
 														   }
+														addcmt +="</div>";
 													}
 												});
 												$("#ajaxComment").html(addcmt).trigger("create");

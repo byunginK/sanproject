@@ -52,13 +52,36 @@
 </div>
 <div id="chat_wrap">
    <div id="openchat">
-      <h2>chat</h2>
+      <h2>San 오픈 채팅</h2>
+      <table border="1">
+      
+      	<tr>
+      		<th>산에 대한 이야기 시작하기</th>
+      		<td>
+      			<input type="button" id='enterBtn' value="입장" onclick="connect()"> 
+      			<input type="button" id='exitBtn' value="나가기" onclick="disconnect()">
+      		</td>
+      	</tr>
+      	<tr>
+      		<td colspan="2">
+      			<textarea id="charMessageArea" style="width: 360px; height: 300px" ></textarea>
+      		</td>
+      	</tr>
+      	<tr>
+      		<td colspan="2">
+      			<input type="text" id='message'>
+      			<input type="button" id="sendBtn" value="전송" onclick="send()">
+      		</td>
+      	</tr>
+      
+      </table>
    </div>
-   <div id="chatbot">
-      <h2>chatbot</h2>
-   </div>
+   
 </div>
 <script>
+let wsocket;
+
+
    $(document).ready(function() {
       $('.bxslider').bxSlider();
       
@@ -200,5 +223,62 @@ function updateMain(main_post_number){
 
 function delAndUp(post_number){
 	$("#menu" + post_number).slideToggle();
+}
+
+function connect(){
+	if(wsocket != undefined && wsocket.readyState != WebSocket.CLOSED){
+		alert("이미 입장하셨습니다.");
+		return;
+	}else{
+		wsocket = new WebSocket("ws://192.168.0.7:8090/spring/echo.do");
+		wsocket.onopen = onOpen;
+		wsocket.onmessage = onMessage; 
+		/* wsocket.close = onClose; */
+	}	
+}
+  
+function disconnect(){
+	wsocket.close();
+	$.ajax({
+		url:'exitChat.do',
+		type:'get',
+		success(data){
+			appendMessage(data);
+		},
+		error(){
+			alert('error');
+		}
+	});
+	
+}
+
+function onOpen(evt){	
+	appendMessage("오픈 채팅을 시작 합니다");
+}
+function onMessage(evt){
+	let data = evt.data;
+	if(data.substring(0,4)=="msg:"){ 
+		appendMessage(data.substring(4));
+	}
+}
+/* function onClose(evt){	
+	appendMessage("오픈 채팅을 나갑니다");
+	
+} */
+
+function send(){	
+	let id = '${login.nickname}';
+	let msg = $("#message").val();
+	if(msg != "" && msg != null){
+		wsocket.send("msg:"+ id + ":"+ msg);
+		$("#message").val("");
+	}
+}
+
+function appendMessage(msg){ 
+	$("#charMessageArea").append(msg + "\n");
+
+	const top = $("#charMessageArea").prop("scrollHeight");
+	$("#charMessageArea").scrollTop(top);
 }
 </script>
