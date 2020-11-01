@@ -68,6 +68,8 @@
 		<put-attribute name="left_bar" value="/WEB-INF/views/fix/left-test.jsp"/>
 	</definition>
 	
-
+	<definition name="QnA.tiles" extends="mainBbs.tiles">
+		<put-attribute name="main" value="/WEB-INF/views/qna/qnaMain.jsp"/> 
+	</definition>
 	
 </tiles-definitions>

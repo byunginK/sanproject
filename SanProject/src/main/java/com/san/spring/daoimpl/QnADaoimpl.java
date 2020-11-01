@@ -2,15 +2,22 @@ package com.san.spring.daoimpl;
 
 import java.util.List;
 
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import com.san.spring.dao.QnADao;
 import com.san.spring.dto.QnADto;
 
+@Repository
 public class QnADaoimpl implements QnADao {
+	
+	@Autowired
+	SqlSessionTemplate sqlSession;
 
 	@Override
 	public List<QnADto> allQnaBbsList(QnADto qnaDto) {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectList("allQnaBbsList");
 	}
 
 	@Override
