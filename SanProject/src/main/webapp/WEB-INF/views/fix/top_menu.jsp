@@ -21,7 +21,7 @@
 			<li class="menu"><a><i class="large th list icon"></i></a>
 				<ul class="hide">
 					<li><a href="mountainInformation.do">산 정보</a></li>
-					<li><a>Q&A</a></li>
+					<li><a href="QnAList.do">Q&A</a></li>
 				</ul></li>
 			<li><a href="#none"><i class="large comment outline icon"></i></a>
 			</li>

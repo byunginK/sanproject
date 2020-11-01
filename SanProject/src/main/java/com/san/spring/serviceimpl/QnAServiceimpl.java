@@ -12,13 +12,12 @@ import com.san.spring.service.QnAService;
 @Service
 public class QnAServiceimpl implements QnAService {
 	
-	//@Autowired
-	//private QnADao qnaDao;
+	@Autowired
+	private QnADao qnaDao;
 
 	@Override
 	public List<QnADto> allQnaBbsList(QnADto qnaDto) {
-		// TODO Auto-generated method stub
-		return null;
+		return qnaDao.allQnaBbsList(qnaDto);
 	}
 
 	@Override
