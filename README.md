@@ -5,3 +5,4 @@
 - 2020 10 09 mainList, mainDetail, Saninformation login gitignore update  
 - 2020 10 10 searchlis
 - 2020 10 15 mainBbs update/delete  & detail comment update/delete
+- 2020 11 01 add Q&A function 
