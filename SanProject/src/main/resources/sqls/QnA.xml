@@ -4,11 +4,20 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.san.spring.dao.QnADao">
 	<select id="allQnaBbsList" resultType="com.san.spring.dto.QnADto">
-		SELECT *
-		FROM QNABBS
+		SELECT q.POST_NUMBER, q.TITLE, q.CONTENT, q.EMAIL, q.STEP, TO_CHAR(q.WDATE,'YYYY-MM-DD')AS WDATE, m.NICKNAME
+		FROM QNABBS q, MEMBER m
+		WHERE q.EMAIL = m.EMAIL
 	
 	</select>
-
+	<insert id="addQnaBbs" parameterType="com.san.spring.dto.QnADto">
+	INSERT INTO QNABBS(POST_NUMBER, TITLE, CONTENT, EMAIL, STEP, DEL, WDATE)
+	VALUES(SEQ_MAINBBS.NEXTVAL, #{title}, #{content}, #{email}, 0, 0, SYSDATE)
+	</insert>
+	<select id="getQnaBbs" parameterType="Integer" resultType="com.san.spring.dto.QnADto">
+		SELECT q.POST_NUMBER, q.TITLE, q.CONTENT, q.EMAIL, q.STEP, TO_CHAR(q.WDATE,'YYYY-MM-DD')AS WDATE, m.NICKNAME
+		FROM QNABBS q, MEMBER m
+		WHERE POST_NUMBER = #{postNumber} AND q.EMAIL = m.EMAIL
+	</select>
 
 
 </mapper>  

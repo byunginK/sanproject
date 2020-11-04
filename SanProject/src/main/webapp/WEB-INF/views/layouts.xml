@@ -72,4 +72,12 @@
 		<put-attribute name="main" value="/WEB-INF/views/qna/qnaMain.jsp"/> 
 	</definition>
 	
+	<definition name="writeQnA.tiles" extends="mainBbs.tiles">
+		<put-attribute name="main" value="/WEB-INF/views/qna/writeQnA.jsp"/>
+	</definition>
+	
+	<definition name="qnaDetail.tiles" extends="mainBbs.tiles">
+		<put-attribute name="main" value="/WEB-INF/views/qna/qnaDetail.jsp"/>
+	</definition>
+	
 </tiles-definitions>
