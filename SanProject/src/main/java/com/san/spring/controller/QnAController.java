@@ -44,4 +44,18 @@ public class QnAController {
 		model.addAttribute("qna", dto);
 		return "qnaDetail.tiles";
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "deleteQna.do", method = RequestMethod.GET)
+	public int deleteQna(int post_number) {
+		int result = QnAService.removeQnaBbs(post_number);
+		return result;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "updateQna.do",method = RequestMethod.POST)
+	public int updateQna(QnADto qnADto) {
+		int result = QnAService.updateQnaBbs(qnADto);
+		return result;
+	}
 }

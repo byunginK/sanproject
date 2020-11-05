@@ -37,15 +37,13 @@ public class QnAServiceimpl implements QnAService {
 	}
 
 	@Override
-	public boolean removeQnaBbs(String seq) {
-		// TODO Auto-generated method stub
-		return false;
+	public int removeQnaBbs(int seq) {
+		return qnaDao.removeQnaBbs(seq);
 	}
 
 	@Override
-	public boolean updateQnaBbs(QnADto qnaDto) {
-		// TODO Auto-generated method stub
-		return false;
+	public int updateQnaBbs(QnADto qnaDto) {
+		return qnaDao.updateQnaBbs(qnaDto);
 	}
 
 }
