@@ -9,6 +9,6 @@ public interface QnAService {
 	int getQnaBbsCount(QnADto qnaDto); // 페이징 수
 	int addQnaBbs(QnADto qnaDto); // 게시글 생성
 	QnADto getQnaBbs(int seq); // 게시글 상세 정보(1개)
-	boolean removeQnaBbs(String seq); // 게시글 삭제
-	boolean updateQnaBbs(QnADto qnaDto); // 게시글 수정
+	int removeQnaBbs(int seq); // 게시글 삭제
+	int updateQnaBbs(QnADto qnaDto); // 게시글 수정
 }

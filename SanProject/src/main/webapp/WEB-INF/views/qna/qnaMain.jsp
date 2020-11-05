@@ -23,9 +23,10 @@
 			</tr>
 			</c:if>
 			<c:forEach items="${QnA }" var="qna" varStatus="vs">
-			<tr>
-				<td>${vs.count}</td><td>${qna.nickname }</td><td><a href='goQnaDetail.do?post_number=${qna.post_number }'>${qna.title }</a></td><td>${qna.step }</td><td>${qna.wdate }</td>
-			</tr>
+					<tr>
+						<td>${vs.count}</td><td>${qna.nickname }</td><td><a href='goQnaDetail.do?post_number=${qna.post_number }'>${qna.title }</a></td><td>${qna.step }</td><td>${qna.wdate }</td>
+					</tr>
+					
 			</c:forEach>
 		</tbody>
 	

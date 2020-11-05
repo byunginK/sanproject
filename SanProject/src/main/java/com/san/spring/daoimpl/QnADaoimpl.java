@@ -37,15 +37,13 @@ public class QnADaoimpl implements QnADao {
 	}
 
 	@Override
-	public boolean removeQnaBbs(String seq) {
-		// TODO Auto-generated method stub
-		return false;
+	public int removeQnaBbs(int seq) {
+		return sqlSession.update("removeQnaBbs", seq);
 	}
 
 	@Override
-	public boolean updateQnaBbs(QnADto qnaDto) {
-		// TODO Auto-generated method stub
-		return false;
+	public int updateQnaBbs(QnADto qnaDto) {
+		return sqlSession.update("updateQnaBbs", qnaDto);
 	}
 
 }

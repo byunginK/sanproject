@@ -6,7 +6,8 @@
 	<select id="allQnaBbsList" resultType="com.san.spring.dto.QnADto">
 		SELECT q.POST_NUMBER, q.TITLE, q.CONTENT, q.EMAIL, q.STEP, TO_CHAR(q.WDATE,'YYYY-MM-DD')AS WDATE, m.NICKNAME
 		FROM QNABBS q, MEMBER m
-		WHERE q.EMAIL = m.EMAIL
+		WHERE q.EMAIL = m.EMAIL AND q.DEL = 0
+		
 	
 	</select>
 	<insert id="addQnaBbs" parameterType="com.san.spring.dto.QnADto">
@@ -18,6 +19,15 @@
 		FROM QNABBS q, MEMBER m
 		WHERE POST_NUMBER = #{postNumber} AND q.EMAIL = m.EMAIL
 	</select>
-
+	<update id="removeQnaBbs" parameterType="Integer">
+		UPDATE QNABBS
+		SET DEL = 1
+		WHERE POST_NUMBER = #{post_number}
+	</update>
+	<update id="updateQnaBbs" parameterType="com.san.spring.dto.QnADto">
+		UPDATE QNABBS
+		SET CONTENT = #{content}
+		WHERE POST_NUMBER = #{post_number}
+	</update>
 
 </mapper>  
