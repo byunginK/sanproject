@@ -21,9 +21,8 @@ public class QnAServiceimpl implements QnAService {
 	}
 
 	@Override
-	public int getQnaBbsCount(QnADto qnaDto) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getQnaBbsCount() {
+		return qnaDao.getQnaBbsCount();
 	}
 
 	@Override

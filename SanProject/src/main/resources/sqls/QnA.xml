@@ -3,10 +3,12 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.san.spring.dao.QnADao">
-	<select id="allQnaBbsList" resultType="com.san.spring.dto.QnADto">
-		SELECT q.POST_NUMBER, q.TITLE, q.CONTENT, q.EMAIL, q.STEP, TO_CHAR(q.WDATE,'YYYY-MM-DD')AS WDATE, m.NICKNAME
+	<select id="allQnaBbsList" parameterType="com.san.spring.dto.QnADto" resultType="com.san.spring.dto.QnADto">
+	SELECT RNUM, POST_NUMBER, TITLE, CONTENT, EMAIL, STEP, WDATE, NICKNAME
+	FROM (SELECT ROW_NUMBER()OVER(ORDER BY WDATE DESC)AS RNUM,q.POST_NUMBER, q.TITLE, q.CONTENT, q.EMAIL, q.STEP, TO_CHAR(q.WDATE,'YYYY-MM-DD')AS WDATE, m.NICKNAME
 		FROM QNABBS q, MEMBER m
-		WHERE q.EMAIL = m.EMAIL AND q.DEL = 0
+		WHERE q.EMAIL = m.EMAIL AND q.DEL = 0)
+	WHERE RNUM BETWEEN #{start} AND #{end}  
 		
 	
 	</select>
@@ -29,5 +31,10 @@
 		SET CONTENT = #{content}
 		WHERE POST_NUMBER = #{post_number}
 	</update>
+	<select id="getQnaBbsCount" resultType="Integer">
+		SELECT COUNT(POST_NUMBER)
+		FROM QNABBS
+		WHERE DEL = 0
+	</select>
 
 </mapper>  

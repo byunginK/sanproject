@@ -21,7 +21,9 @@ public class QnAController {
 	@RequestMapping(value = "QnAList.do", method = RequestMethod.GET)
 	public String AllQnAList(QnADto qnADto, Model model){
 		List<QnADto> list = QnAService.allQnaBbsList(qnADto);
+		int pgCount = QnAService.getQnaBbsCount();
 		model.addAttribute("QnA", list);
+		model.addAttribute("totalCount", pgCount);
 		return "QnA.tiles";
 	}
 	
@@ -57,5 +59,18 @@ public class QnAController {
 	public int updateQna(QnADto qnADto) {
 		int result = QnAService.updateQnaBbs(qnADto);
 		return result;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "pagingQna.do", method = RequestMethod.GET)
+	public List<QnADto> pagingQna(QnADto qnaDto){
+		int nowPage = qnaDto.getPageNumber()-1;
+		System.out.println(nowPage);
+		int start = nowPage * qnaDto.getRecordCountPerPage()+1;
+		int end = (start-1)+qnaDto.getRecordCountPerPage();
+		qnaDto.setStart(start);
+		qnaDto.setEnd(end);
+		List<QnADto> list = QnAService.allQnaBbsList(qnaDto);
+		return list;
 	}
 }
