@@ -17,13 +17,12 @@ public class QnADaoimpl implements QnADao {
 
 	@Override
 	public List<QnADto> allQnaBbsList(QnADto qnaDto) {
-		return sqlSession.selectList("allQnaBbsList");
+		return sqlSession.selectList("allQnaBbsList",qnaDto);
 	}
 
 	@Override
-	public int getQnaBbsCount(QnADto qnaDto) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getQnaBbsCount() {
+		return sqlSession.selectOne("getQnaBbsCount");
 	}
 
 	@Override

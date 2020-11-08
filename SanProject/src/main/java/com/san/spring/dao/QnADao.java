@@ -6,7 +6,7 @@ import com.san.spring.dto.QnADto;
 public interface QnADao {
 
 	List<QnADto> allQnaBbsList(QnADto qnaDto); // 전제 게시글 list 
-	int getQnaBbsCount(QnADto qnaDto); // 페이징 수
+	int getQnaBbsCount(); // 페이징 수
 	int addQnaBbs(QnADto qnaDto); // 게시글 생성
 	QnADto getQnaBbs(int seq); // 게시글 상세 정보(1개)
 	int removeQnaBbs(int seq); // 게시글 삭제
